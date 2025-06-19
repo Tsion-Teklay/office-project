@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Office Document System</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Temporary inline style for layout - can move to style.css later */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #008E87;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      background: #EC7346;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #008E87;
+    }
+
+    .roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .role-box {
+      background: white;
+      padding: 20px;
+      flex: 1 1 250px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Document Sharing & Communication Portal</h1>
+    <a href="login.php">Login</a>
+  </header>
+
+  <section>
+    <h2>Our Mission</h2>
+    <p>
+      To streamline communication and document management within the office through a secure, efficient, and role-based platform.
+    </p>
+  </section>
+
+  <section>
+    <h2>Our Vision</h2>
+    <p>
+      Empowering employees with digital tools to manage tasks, share files, and stay updated through a collaborative workspace.
+    </p>
+  </section>
+
+  <section>
+    <h2>Goals</h2>
+    <ul>
+      <li>Improve workflow visibility and accountability</li>
+      <li>Facilitate fast and secure file sharing</li>
+      <li>Enhance communication among team members</li>
+      <li>Track work progress through deadline-based submissions</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Our Team Structure</h2>
+    <div class="roles">
+      <div class="role-box">
+        <h3>Admin</h3>
+        <p>Manages users, tracks all activity, sends broadcasts, and oversees document workflow.</p>
+      </div>
+      <div class="role-box">
+        <h3>Coordinator</h3>
+        <p>Receives files from employees, coordinates responses, and sends files to Admin or back to employees.</p>
+      </div>
+      <div class="role-box">
+        <h3>Employees</h3>
+        <p>Send and receive files depending on their role. Roles include inspectors, engineers, and permit issuers.</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
