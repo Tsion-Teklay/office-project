@@ -32,54 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
   <meta charset="UTF-8">
   <title>Login - Office Portal</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-    }
-
-    .login-container {
-      width: 400px;
-      margin: 100px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
-    }
-
-    h2 {
-      text-align: center;
-      color: #008E87;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    input[type="email"],
-    input[type="password"] {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    input[type="submit"] {
-      background: #EC7346;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .error {
-      color: red;
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="login-container">

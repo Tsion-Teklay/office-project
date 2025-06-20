@@ -8,6 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
+$role = $_SESSION['role'] ?? '';
 
 // Get broadcast messages
 $broadcasts = $pdo->query("
@@ -62,20 +63,23 @@ $feedbacks = $pdo->query("
     <?php endforeach; ?>
   </div>
 
+  <?php if ($role === 'admin'): ?>
   <div class="section">
-  <h2>📝 Client Feedback</h2>
-  <?php if (empty($feedbacks)): ?>
-    <p>No feedback received yet.</p>
-  <?php else: ?>
-    <?php foreach ($feedbacks as $f): ?>
-      <div class="message-box">
-        <div class="sender"><?= htmlspecialchars($f['name']) ?> (Client)</div>
-        <div class="time"><?= $f['submitted_at'] ?></div>
-        <p><?= nl2br(htmlspecialchars($f['message'])) ?></p>
-      </div>
-    <?php endforeach; ?>
-  <?php endif; ?>
-</div>
+    <h2>📝 Client Feedback</h2>
+    <?php if (empty($feedbacks)): ?>
+      <p>No feedback received yet.</p>
+    <?php else: ?>
+      <?php foreach ($feedbacks as $f): ?>
+        <div class="message-box">
+          <div class="sender"><?= htmlspecialchars($f['name']) ?> (Client)</div>
+          <div class="time"><?= $f['submitted_at'] ?></div>
+          <p><?= nl2br(htmlspecialchars($f['message'])) ?></p>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
+  </div>
+<?php endif; ?>
+
 
 
 <?php include 'footer.php'?>
