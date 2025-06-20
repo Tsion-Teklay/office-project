@@ -33,37 +33,7 @@ $stmt->execute([$user_id]);
 $files = $stmt->fetchAll();
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Your Files</title>
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 30px;
-    }
-
-    th, td {
-      padding: 10px;
-      border: 1px solid #ccc;
-    }
-
-    .btn {
-      padding: 5px 10px;
-      background: #008E87;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-
-    .btn.disabled {
-      background: gray;
-      pointer-events: none;
-    }
-  </style>
-</head>
-<body>
+<?php include 'header.php'?>
 
   <h2>Your Received Files</h2>
 
@@ -95,5 +65,4 @@ $files = $stmt->fetchAll();
     <?php endforeach; ?>
   </table>
 
-</body>
-</html>
+<?php include 'footer.php'?>

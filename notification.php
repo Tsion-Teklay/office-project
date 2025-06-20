@@ -29,36 +29,7 @@ $stmt->execute([$user_id]);
 $messages = $stmt->fetchAll();
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Notifications</title>
-  <style>
-    .section {
-      margin-bottom: 40px;
-    }
-
-    .message-box {
-      background: white;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-    }
-
-    .sender {
-      font-weight: bold;
-      color: #008E87;
-    }
-
-    .time {
-      font-size: 0.9em;
-      color: #888;
-    }
-  </style>
-</head>
-<body>
-
+<?php include 'header.php'?>
   <div class="section">
     <h2>📢 Broadcasts</h2>
     <?php foreach ($broadcasts as $b): ?>
@@ -81,5 +52,4 @@ $messages = $stmt->fetchAll();
     <?php endforeach; ?>
   </div>
 
-</body>
-</html>
+<?php include 'footer.php'?>

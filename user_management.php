@@ -45,61 +45,7 @@ if (isset($_GET['delete'])) {
 $users = $pdo->query("SELECT * FROM users ORDER BY role")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Manage Users - Admin</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 30px;
-    }
-
-    h2 {
-      color: #008E87;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 30px;
-    }
-
-    th, td {
-      padding: 10px;
-      border: 1px solid #ccc;
-    }
-
-    form {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    input, select {
-      padding: 8px;
-      margin: 5px 0;
-      width: 100%;
-    }
-
-    input[type="submit"] {
-      background: #EC7346;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .delete {
-      color: red;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
+<?php include 'header.php'?>
 
   <h2>All Users</h2>
   <table>
@@ -149,5 +95,4 @@ $users = $pdo->query("SELECT * FROM users ORDER BY role")->fetchAll(PDO::FETCH_A
     <input type="submit" value="Add User">
   </form>
 
-</body>
-</html>
+<?php include 'footer.php'?>

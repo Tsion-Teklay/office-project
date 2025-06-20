@@ -20,16 +20,7 @@ $stmt->execute([$user_id]);
 $files = $stmt->fetchAll();
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Sent Files</title>
-  <style>
-    table { width: 100%; border-collapse: collapse; margin-top: 30px; }
-    th, td { padding: 10px; border: 1px solid #ccc; }
-  </style>
-</head>
-<body>
+<?php include 'header.php'?>
 
   <h2>History: Sent Files</h2>
 
@@ -53,5 +44,4 @@ $files = $stmt->fetchAll();
     <?php endforeach; ?>
   </table>
 
-</body>
-</html>
+<?php include 'footer.php'?>

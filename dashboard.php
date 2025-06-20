@@ -14,84 +14,10 @@ $role = $_SESSION['user_role'];
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Dashboard - <?= ucfirst($role) ?></title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-    }
 
-    nav {
-      width: 220px;
-      height: 100vh;
-      background: #008E87;
-      color: white;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    nav h2 {
-      margin-top: 0;
-    }
-
-    nav a {
-      display: block;
-      margin: 10px 0;
-      color: white;
-      text-decoration: none;
-    }
-
-    main {
-      flex: 1;
-      padding: 30px;
-      background: #f4f4f4;
-    }
-
-    .top-bar {
-      background: #EC7346;
-      color: white;
-      padding: 10px;
-      text-align: right;
-    }
-
-    .btn {
-      padding: 8px 16px;
-      background: #008E87;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-  </style>
-</head>
-<body>
-
-<nav>
-  <h2><?= ucfirst($role) ?> Panel</h2>
-  <p>Welcome, <?= $name ?></p>
-  <a href="files.php">📂 Files</a>
-  <a href="history.php">📜 History</a>
-  <a href="notification.php">🔔 Notifications</a>
-
-  <?php if ($role == 'admin'): ?>
-    <a href="user_management.php">👥 Manage Users</a>
-    <a href="broadcast.php">📢 Broadcast Message</a>
-  <?php endif; ?>
-
-  <a href="logout.php">🚪 Logout</a>
-</nav>
+<?php include 'header.php'?>
 
 <main>
-  <div class="top-bar">
-    <button class="btn" onclick="openModal()">➕ Send File/Message</button>
-  </div>
 
   <h1>Dashboard</h1>
 
@@ -121,10 +47,10 @@ $role = $_SESSION['user_role'];
         <label>File Type:</label><br>
         <select name="file_type" id="fileTypeSelect" required onchange="fetchReceivers()">
           <option value="">-- Choose --</option>
-          <option value="file1">File 1</option>
-          <option value="file2">File 2</option>
-          <option value="file3">File 3</option>
-          <option value="file4">File 4</option>
+          <option value="file1" class="from_employee" style="<?= $role === 'employee' ? '' : 'display:none;' ?>">File 1</option>
+          <option value="file2" class="from_employee" style="<?= $role === 'employee' ? '' : 'display:none;' ?>">File 2</option>
+          <option value="file3" class="bn_ac" style="<?= $role === 'employee' ? 'display:none;' : '' ?>">File 3</option>
+          <option value="file4" class="to_employee" style="<?= $role === 'employee' ? 'display:none;' : '' ?>">File 4</option>
         </select><br><br>
 
         <label>Select File:</label>
@@ -202,7 +128,7 @@ $pendingFiles = $stmt->fetchColumn();
 </div>
 
 
-
+<?php include 'footer.php'?>
 </main>
 
 </body>
