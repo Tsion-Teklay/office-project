@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Office Document System</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     :root {
-      --primary-color: #008E87;
+      --primary-color: #265295;
       --secondary-color: #E0F7F5;
       --text-dark: #222;
       --text-light: #fff;
-      --accent-color: #00B3A6;
+      --accent-color:rgb(72, 107, 159);
       --bg-color: #f4f4f4;
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       --radius: 12px;
     }
 
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
 
@@ -50,14 +50,14 @@
     }
 
     .header-bar h1 {
-      font-size: 22px;
+      font-size: 18px;
       margin: 0;
     }
 
     .top-bar .btn {
       background-color: var(--accent-color);
       border: none;
-      padding: 10px 18px;
+      padding: 8px 16px;
       border-radius: var(--radius);
       font-size: 14px;
       cursor: pointer;
@@ -70,33 +70,20 @@
     }
 
     .top-bar .btn:hover {
-      background-color: #009c91;
+      background-color: #1d447a;
     }
 
     .main-content {
       margin-top: 90px;
-      padding: 40px 50px;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    section {
-      margin-bottom: 50px;
+      padding: 40px 20px;
     }
 
     section h2 {
       font-size: 26px;
       color: var(--primary-color);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       border-left: 5px solid var(--accent-color);
       padding-left: 15px;
-    }
-
-    section p,
-    section ul {
-      font-size: 16px;
-      line-height: 1.6;
     }
 
     ul {
@@ -110,42 +97,52 @@
       color: var(--accent-color);
     }
 
-    .roles {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
     .role-box {
       background-color: var(--secondary-color);
-      padding: 20px;
+      padding: 25px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
     }
 
     .role-box:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .role-box img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid var(--primary-color);
     }
 
     .role-box h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+      color: #111;
+    }
+
+    .role-box h4 {
+      font-size: 15px;
       margin-bottom: 10px;
       color: var(--primary-color);
-      font-size: 20px;
+      font-weight: normal;
     }
 
     .role-box p {
-      font-size: 15px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
     }
 
-    @media (max-width: 600px) {
-      .main-content {
-        padding: 20px;
-      }
-
+    @media (max-width: 768px) {
       .header-bar h1 {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .header-bar img {
@@ -156,18 +153,19 @@
 </head>
 <body>
 
+<!-- ✅ Header -->
 <div class="header-bar">
-  <div style="display: flex; align-items: center;">
-    <img src="assets/logo.png" alt="Office Logo">
-    <h1>የቢሮ ሰነድ እና መልዕክት መላኪያ ሲስተም</h1>
+  <div class="d-flex align-items-center">
+    <img src="logo.png" alt="Office Logo">
+    <h1>አዲስ ከተማ ክፍለ ከተማ የወረዳ 11 ግንባታ ፈቃድና ቅጥጥር ጽ/ቤት</h1>
   </div>
-
   <div class="top-bar">
     <button class="btn"><a href="login.php">Login</a></button>
   </div>
 </div>
 
-<div class="main-content">
+<!-- ✅ Main Content -->
+<div class="main-content container">
   <section>
     <h2>Our Mission</h2>
     <p>
@@ -192,26 +190,40 @@
     </ul>
   </section>
 
+  <!-- ✅ Team Section -->
   <section>
     <h2>Our Team Structure</h2>
-    <div class="roles">
-      <div class="role-box">
-        <h3>Admin</h3>
-        <p>Manages users, tracks all activity, sends broadcasts, and oversees document workflow.</p>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="role-box">
+          <img src="assets/team/admin.jpg" alt="Admin Photo">
+          <h3>Selam Tadesse</h3>
+          <h4>Admin</h4>
+          <p>Manages users, tracks all activity, sends broadcasts, and oversees document workflow.</p>
+        </div>
       </div>
-      <div class="role-box">
-        <h3>Coordinator</h3>
-        <p>Receives files from employees, coordinates responses, and sends files to Admin or back to employees.</p>
+
+      <div class="col-md-4">
+        <div class="role-box">
+          <img src="assets/team/coordinator.jpg" alt="Coordinator Photo">
+          <h3>Mekdes Alemu</h3>
+          <h4>Coordinator</h4>
+          <p>Receives files from employees, coordinates responses, and sends files to Admin or back to employees.</p>
+        </div>
       </div>
-      <div class="role-box">
-        <h3>Employees</h3>
-        <p>Send and receive files depending on their role. Roles include inspectors, engineers, and permit issuers.</p>
+
+      <div class="col-md-4">
+        <div class="role-box">
+          <img src="assets/team/employee.jpg" alt="Employee Photo">
+          <h3>Yonatan Girma</h3>
+          <h4>Employee</h4>
+          <p>Send and receive files depending on their role. Roles include inspectors, engineers, and permit issuers.</p>
+        </div>
       </div>
     </div>
   </section>
-</div>
 
-    <section>
+  <section>
     <h2>Feedback / Message to Admin</h2>
     <form action="submit_feedback.php" method="POST" style="max-width: 600px;">
       <label for="client_name">Your Name:</label><br>
@@ -220,12 +232,13 @@
       <label for="message">Your Feedback or Message:</label><br>
       <textarea name="message" id="message" required rows="5" style="width: 100%; padding: 8px;"></textarea><br><br>
 
-      <input type="submit" value="Send Message" style="padding: 10px 20px; background-color: #008E87; color: white; border: none; cursor: pointer;">
+      <input type="submit" value="Send Message" style="background-color: var(--primary-color); color: white;"">
     </form>
   </section>
+</div>
 
-</div> <!-- Close .main-content -->
-
+<!-- ✅ Bootstrap JS Bundle (Optional for dropdowns, modals) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

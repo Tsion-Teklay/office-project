@@ -27,7 +27,17 @@ $stmt = $pdo->prepare("
 ");
 $stmt->execute([$user_id]);
 $messages = $stmt->fetchAll();
+
+// Get client feedback
+$feedbacks = $pdo->query("
+  SELECT name, message, submitted_at 
+  FROM client_feedback 
+  ORDER BY submitted_at DESC
+")->fetchAll();
+
 ?>
+
+
 
 <?php include 'header.php'?>
   <div class="section">
@@ -51,5 +61,21 @@ $messages = $stmt->fetchAll();
       </div>
     <?php endforeach; ?>
   </div>
+
+  <div class="section">
+  <h2>📝 Client Feedback</h2>
+  <?php if (empty($feedbacks)): ?>
+    <p>No feedback received yet.</p>
+  <?php else: ?>
+    <?php foreach ($feedbacks as $f): ?>
+      <div class="message-box">
+        <div class="sender"><?= htmlspecialchars($f['name']) ?> (Client)</div>
+        <div class="time"><?= $f['submitted_at'] ?></div>
+        <p><?= nl2br(htmlspecialchars($f['message'])) ?></p>
+      </div>
+    <?php endforeach; ?>
+  <?php endif; ?>
+</div>
+
 
 <?php include 'footer.php'?>
