@@ -25,53 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Broadcast Message</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 30px;
-    }
-
-    form {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    textarea {
-      width: 100%;
-      height: 150px;
-      padding: 10px;
-      margin-bottom: 10px;
-    }
-
-    input[type="submit"] {
-      background: #EC7346;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-    }
-
-    .message {
-      text-align: center;
-      color: green;
-    }
-
-    .error {
-      text-align: center;
-      color: red;
-    }
-  </style>
-</head>
-<body>
+<?php include 'header.php'?>
 
   <h2 style="text-align: center;">📢 Send Broadcast Message</h2>
 
@@ -89,5 +43,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="submit" value="Send Message">
   </form>
 
-</body>
-</html>
+<?php include 'footer.php'?>
