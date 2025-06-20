@@ -5,59 +5,169 @@
   <title>Office Document System</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    body {
+    :root {
+      --primary-color: #008E87;
+      --secondary-color: #E0F7F5;
+      --text-dark: #222;
+      --text-light: #fff;
+      --accent-color: #00B3A6;
+      --bg-color: #f4f4f4;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --radius: 12px;
+    }
+
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      display: flex;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-dark);
     }
 
     .header-bar {
       position: fixed;
-      left: 0;
       top: 0;
+      left: 0;
       right: 0;
       height: 70px;
-      background-color: #008E87;
-      color: white;
+      background-color: var(--primary-color);
+      color: var(--text-light);
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 0 30px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: var(--shadow);
       z-index: 1000;
     }
 
     .header-bar img {
-      height: 40px;
+      height: 45px;
       margin-right: 15px;
     }
 
-    .main-content {
-      margin-top: 70px;
-      padding: 20px;
-      width: calc(100% - 220px);
+    .header-bar h1 {
+      font-size: 22px;
+      margin: 0;
     }
 
-    .user-bar {
-      margin-left: auto;
+    .top-bar .btn {
+      background-color: var(--accent-color);
+      border: none;
+      padding: 10px 18px;
+      border-radius: var(--radius);
       font-size: 14px;
-      opacity: 0.9;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .top-bar .btn a {
+      text-decoration: none;
+      color: var(--text-light);
+    }
+
+    .top-bar .btn:hover {
+      background-color: #009c91;
+    }
+
+    .main-content {
+      margin-top: 90px;
+      padding: 40px 50px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    section h2 {
+      font-size: 26px;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      border-left: 5px solid var(--accent-color);
+      padding-left: 15px;
+    }
+
+    section p,
+    section ul {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li::before {
+      content: '✔️';
+      margin-right: 8px;
+      color: var(--accent-color);
+    }
+
+    .roles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .role-box {
+      background-color: var(--secondary-color);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .role-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .role-box h3 {
+      margin-bottom: 10px;
+      color: var(--primary-color);
+      font-size: 20px;
+    }
+
+    .role-box p {
+      font-size: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .main-content {
+        padding: 20px;
+      }
+
+      .header-bar h1 {
+        font-size: 16px;
+      }
+
+      .header-bar img {
+        height: 35px;
+      }
     }
   </style>
 </head>
 <body>
 
 <div class="header-bar">
-  <img src="assets/logo.png" alt="Office Logo">
-  <h1 style="margin: 0; font-size: 22px;">የቢሮ ሰነድ እና መልዕክት መላኪያ ሲስተም</h1>
+  <div style="display: flex; align-items: center;">
+    <img src="assets/logo.png" alt="Office Logo">
+    <h1>የቢሮ ሰነድ እና መልዕክት መላኪያ ሲስተም</h1>
+  </div>
 
   <div class="top-bar">
-    <button class="btn" ><a href="login.php">Login</a></button>
+    <button class="btn"><a href="login.php">Login</a></button>
   </div>
 </div>
 
 <div class="main-content">
-
   <section>
     <h2>Our Mission</h2>
     <p>
@@ -99,6 +209,7 @@
       </div>
     </div>
   </section>
+</div>
 
 </body>
 </html>
