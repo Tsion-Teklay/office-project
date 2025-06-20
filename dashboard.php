@@ -76,9 +76,9 @@ $role = $_SESSION['user_role'];
 <nav>
   <h2><?= ucfirst($role) ?> Panel</h2>
   <p>Welcome, <?= $name ?></p>
-  <a href="#">📂 Files</a>
-  <a href="#">📜 History</a>
-  <a href="#">🔔 Notifications</a>
+  <a href="files.php">📂 Files</a>
+  <a href="history.php">📜 History</a>
+  <a href="notification.php">🔔 Notifications</a>
 
   <?php if ($role == 'admin'): ?>
     <a href="user_management.php">👥 Manage Users</a>
@@ -90,7 +90,6 @@ $role = $_SESSION['user_role'];
 
 <main>
   <div class="top-bar">
-    <button class="btn">➕ Send File/Message</button>
     <button class="btn" onclick="openModal()">➕ Send File/Message</button>
   </div>
 
@@ -161,9 +160,18 @@ function closeModal() {
 
 function toggleSendType() {
   let type = document.getElementById('typeSelect').value;
+
+  // Show/hide input areas
   document.getElementById('fileFields').style.display = (type === 'file') ? 'block' : 'none';
   document.getElementById('messageField').style.display = (type === 'message') ? 'block' : 'none';
-  fetchReceivers();
+
+  // Enable/disable required based on selection
+  document.querySelector('[name="uploaded_file"]').required = (type === 'file');
+  document.querySelector('[name="file_type"]').required = (type === 'file');
+  document.querySelector('[name="deadline"]').required = (type === 'file');
+  document.querySelector('[name="message_content"]').required = (type === 'message');
+
+  fetchReceivers(); // Always reload receiver list
 }
 
 function fetchReceivers() {
