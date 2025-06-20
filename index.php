@@ -2,72 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Office Document System</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* Temporary inline style for layout - can move to style.css later */
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
       background-color: #f4f4f4;
-      color: #333;
+      display: flex;
     }
 
-    header {
+    .header-bar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      height: 70px;
       background-color: #008E87;
       color: white;
-      padding: 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      padding: 0 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1000;
     }
 
-    header h1 {
-      margin: 0;
+    .header-bar img {
+      height: 40px;
+      margin-right: 15px;
     }
 
-    header a {
-      color: white;
-      text-decoration: none;
-      background: #EC7346;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      color: #008E87;
-    }
-
-    .roles {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .role-box {
-      background: white;
+    .main-content {
+      margin-top: 70px;
       padding: 20px;
-      flex: 1 1 250px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
+      width: calc(100% - 220px);
+    }
+
+    .user-bar {
+      margin-left: auto;
+      font-size: 14px;
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Document Sharing & Communication Portal</h1>
-    <a href="login.php">Login</a>
-  </header>
+<div class="header-bar">
+  <img src="assets/logo.png" alt="Office Logo">
+  <h1 style="margin: 0; font-size: 22px;">የቢሮ ሰነድ እና መልዕክት መላኪያ ሲስተም</h1>
+
+  <div class="top-bar">
+    <button class="btn" ><a href="login.php">Login</a></button>
+  </div>
+</div>
+
+<div class="main-content">
 
   <section>
     <h2>Our Mission</h2>
