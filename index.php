@@ -211,5 +211,21 @@
   </section>
 </div>
 
+    <section>
+    <h2>Feedback / Message to Admin</h2>
+    <form action="submit_feedback.php" method="POST" style="max-width: 600px;">
+      <label for="client_name">Your Name:</label><br>
+      <input type="text" name="client_name" id="client_name" required style="width: 100%; padding: 8px;"><br><br>
+
+      <label for="message">Your Feedback or Message:</label><br>
+      <textarea name="message" id="message" required rows="5" style="width: 100%; padding: 8px;"></textarea><br><br>
+
+      <input type="submit" value="Send Message" style="padding: 10px 20px; background-color: #008E87; color: white; border: none; cursor: pointer;">
+    </form>
+  </section>
+
+</div> <!-- Close .main-content -->
+
+
 </body>
 </html>
