@@ -11,69 +11,153 @@ if (!isset($_SESSION['user_id'])) {
 // Get user info from session
 $name = $_SESSION['user_name'];
 $role = $_SESSION['user_role'];
-
 ?>
 
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@500&family=Righteous&family=Rajdhani:wght@600&family=Syncopate&display=swap" rel="stylesheet">
 
-<?php include 'header.php'?>
+<?php include 'header.php' ?>
 
-<main>
+<main class="main-content">
+  <h1 style="font-size: 35px; color: var(--primary-color); margin-bottom: 20px;">Dashboard</h1>
 
-  <h1>Dashboard</h1>
 
-  <?php if ($role == 'admin'): ?>
-    <p>You can manage users, view all file flows, and broadcast messages.</p>
-  <?php elseif ($role == 'coordinator'): ?>
-    <p>You can manage documents sent from employees and respond accordingly.</p>
-  <?php elseif ($role == 'employee'): ?>
-    <p>You can send documents to admin/coordinator and track their status.</p>
-  <?php endif; ?>
 
   <!-- Modal Background -->
-<div id="sendModal" style="display: none; position: fixed; top: 0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5);">
-  <div style="background: white; width: 500px; margin: 100px auto; padding: 20px; border-radius: 10px; position: relative;">
-    <span onclick="closeModal()" style="position: absolute; right: 15px; top: 10px; cursor: pointer; font-weight: bold;">&times;</span>
-    <h3>Send File or Message</h3>
-    
-    <form id="sendForm" action="send_handler.php" method="POST" enctype="multipart/form-data">
-      <label>Type:</label><br>
-      <select id="typeSelect" name="send_type" required onchange="toggleSendType()">
-        <option value="">-- Select --</option>
-        <option value="file">File</option>
-        <option value="message">Message</option>
-      </select><br><br>
+  <div id="sendModal" style="display: none; position: fixed; top: 0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 2000;">
+    <div style="background: white; width: 500px; margin: 100px auto; padding: 20px; border-radius: var(--radius); position: relative; box-shadow: var(--shadow);">
+      <span onclick="closeModal()" style="position: absolute; right: 15px; top: 10px; cursor: pointer; font-weight: bold; font-size: 20px;">&times;</span>
+      <h3 style="color: var(--primary-color);">Send File or Message</h3>
 
-      <div id="fileFields" style="display: none;">
-        <label>File Type:</label><br>
-        <select name="file_type" id="fileTypeSelect" required onchange="fetchReceivers()">
-          <option value="">-- Choose --</option>
-          <option value="file1" class="from_employee" style="<?= $role === 'employee' ? '' : 'display:none;' ?>">File 1</option>
-          <option value="file2" class="from_employee" style="<?= $role === 'employee' ? '' : 'display:none;' ?>">File 2</option>
-          <option value="file3" class="bn_ac" style="<?= $role === 'employee' ? 'display:none;' : '' ?>">File 3</option>
-          <option value="file4" class="to_employee" style="<?= $role === 'employee' ? 'display:none;' : '' ?>">File 4</option>
+      <form id="sendForm" action="send_handler.php" method="POST" enctype="multipart/form-data">
+        <label>Type:</label><br>
+        <select id="typeSelect" name="send_type" required onchange="toggleSendType()">
+          <option value="">-- Select --</option>
+          <option value="file">File</option>
+          <option value="message">Message</option>
         </select><br><br>
 
-        <label>Select File:</label>
-        <input type="file" name="uploaded_file" accept=".pdf,.docx,.xlsx,.dwg" required><br><br>
+        <div id="fileFields" style="display: none;">
+          <label>File Type:</label><br>
+          <select name="file_type" id="fileTypeSelect" required onchange="fetchReceivers()">
+            <option value="">-- Choose --</option>
+            <option value="file1" class="from_employee" style="<?= $role === 'employee' ? '' : 'display:none;' ?>">File 1</option>
+            <option value="file2" class="from_employee" style="<?= $role === 'employee' ? '' : 'display:none;' ?>">File 2</option>
+            <option value="file3" class="bn_ac" style="<?= $role === 'employee' ? 'display:none;' : '' ?>">File 3</option>
+            <option value="file4" class="to_employee" style="<?= $role === 'employee' ? 'display:none;' : '' ?>">File 4</option>
+          </select><br><br>
 
-        <label>Deadline:</label>
-        <input type="date" name="deadline" required><br><br>
-      </div>
+          <label>Select File:</label>
+          <input type="file" name="uploaded_file" accept=".pdf,.docx,.xlsx,.dwg" required><br><br>
 
-      <div id="messageField" style="display: none;">
-        <label>Message:</label>
-        <textarea name="message_content" style="width:100%; height:100px;"></textarea><br><br>
-      </div>
+          <label>Deadline:</label>
+          <input type="date" name="deadline" required><br><br>
+        </div>
 
-      <label>Select Receivers:</label><br>
-      <div id="receiverList">
-        <!-- Receivers will load here with JS -->
-      </div><br>
+        <div id="messageField" style="display: none;">
+          <label>Message:</label>
+          <textarea name="message_content" style="width:100%; height:100px;"></textarea><br><br>
+        </div>
 
-      <input type="submit" value="Send">
-    </form>
+        <label>Select Receivers:</label><br>
+        <div id="receiverList"></div><br>
+
+        <input type="submit" value="Send" class="btn" style="background: var(--accent-color); color: white; padding: 10px 20px; border: none; border-radius: var(--radius); cursor: pointer;">
+      </form>
+    </div>
   </div>
+
+  <?php
+$user_id = $_SESSION['user_id'];
+
+// Pending Files (received)
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM files WHERE receiver_id = ? AND status = 'pending'");
+$stmt->execute([$user_id]);
+$pendingFiles = $stmt->fetchColumn();
+
+// Sent Files (sent by user)
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM files WHERE sender_id = ?");
+$stmt->execute([$user_id]);
+$sentFiles = $stmt->fetchColumn();
+
+// Broadcasted messages (if user is admin)
+$broadcasts = 0;
+if ($role === 'admin') {
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM notifications WHERE sender_id = ?");
+    $stmt->execute([$user_id]);
+    $broadcasts = $stmt->fetchColumn();
+}
+?>
+
+<div class="summary-container">
+  <div class="summary-card">
+    <div class="summary-count" data-target="<?= $pendingFiles ?>">0</div>
+    <div class="summary-label">Pending Files</div>
+  </div>
+
+  <div class="summary-card">
+    <div class="summary-count" data-target="<?= $sentFiles ?>">0</div>
+    <div class="summary-label">Sent Files</div>
+  </div>
+
+  <?php if ($role === 'admin'): ?>
+    <div class="summary-card">
+      <div class="summary-count" data-target="<?= $broadcasts ?>">0</div>
+      <div class="summary-label">Broadcasts</div>
+    </div>
+  <?php endif; ?>
 </div>
+
+<style>
+  .summary-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    justify-content: center;
+  }
+
+  .summary-card {
+    width: 280px;
+    height: 280px;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-family: var(--font-base);
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .summary-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  }
+
+  .summary-count {
+    font-size: 80px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-family: 'Syncopate', sans-serif;
+  }
+
+  .summary-label {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    font-family: 'DM Sans', sans-serif;
+  }
+</style>
+
+  
+</main>
 
 <script>
 function openModal() {
@@ -87,17 +171,15 @@ function closeModal() {
 function toggleSendType() {
   let type = document.getElementById('typeSelect').value;
 
-  // Show/hide input areas
   document.getElementById('fileFields').style.display = (type === 'file') ? 'block' : 'none';
   document.getElementById('messageField').style.display = (type === 'message') ? 'block' : 'none';
 
-  // Enable/disable required based on selection
   document.querySelector('[name="uploaded_file"]').required = (type === 'file');
   document.querySelector('[name="file_type"]').required = (type === 'file');
   document.querySelector('[name="deadline"]').required = (type === 'file');
   document.querySelector('[name="message_content"]').required = (type === 'message');
 
-  fetchReceivers(); // Always reload receiver list
+  fetchReceivers();
 }
 
 function fetchReceivers() {
@@ -108,28 +190,48 @@ function fetchReceivers() {
     .then(res => res.text())
     .then(html => document.getElementById('receiverList').innerHTML = html);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".summary-count");
+
+  counters.forEach(counter => {
+    const finalValue = +counter.getAttribute("data-target");
+    let fakeRuns = 15; // how many random numbers before showing actual value
+    let run = 0;
+
+    const rollRandom = () => {
+      if (run < fakeRuns) {
+        const fakeNum = Math.floor(Math.random() * finalValue * 1.5);
+        counter.textContent = fakeNum;
+        run++;
+        setTimeout(rollRandom, 50);
+      } else {
+        animateCount(finalValue);
+      }
+    };
+
+    const animateCount = (target) => {
+      let current = 0;
+      const increment = Math.ceil(target / 40);
+
+      const update = () => {
+        current += increment;
+        if (current >= target) {
+          counter.textContent = target;
+        } else {
+          counter.textContent = current;
+          requestAnimationFrame(update);
+        }
+      };
+
+      update();
+    };
+
+    rollRandom();
+  });
+});
 </script>
 
-
-<?php
-$user_id = $_SESSION['user_id'];
-
-// Count unread files (status = pending)
-$stmt = $pdo->prepare("SELECT COUNT(*) FROM files WHERE receiver_id = ? AND status = 'pending'");
-$stmt->execute([$user_id]);
-$pendingFiles = $stmt->fetchColumn();
-
-// Count unseen notifications/messages (optional, depends on your schema)
-?>
-<div style="margin: 20px 0; background: #e7f3f3; padding: 15px; border-radius: 8px;">
-  <strong>Summary:</strong><br>
-  Pending Files to review: <strong><?= $pendingFiles ?></strong><br>
-  <!-- Add more summaries here if desired -->
-</div>
-
-
-<?php include 'footer.php'?>
-</main>
-
+<?php include 'footer.php' ?>
 </body>
 </html>

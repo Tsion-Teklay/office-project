@@ -1,17 +1,19 @@
 <?php
 $role = $_SESSION['user_role'] ?? '';
 ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 <div class="sidebar">
-  <h2><?php echo $role; ?> Pannel</h2>
-  <a href="dashboard.php">🏠 Dashboard</a>
-  <a href="files.php">📂 Files</a>
-  <a href="history.php">🕘 History</a>
-  <a href="notification.php">🔔 Notifications</a>
+  <h2><?php echo $role; ?> Panel</h2>
+  
+  <a href="dashboard.php"><i class="bi bi-speedometer2"></i> Dashboard</a>
+  <a href="files.php"><i class="bi bi-folder-fill"></i> Files</a>
+  <a href="history.php"><i class="bi bi-clock-history"></i> History</a>
+  <a href="notification.php"><i class="bi bi-bell-fill"></i> Notifications</a>
 
   <?php if ($role === 'admin'): ?>
-    <a href="user_management.php">👥 Manage Users</a>
-    <a href="broadcast.php">📢 Broadcast</a>
+    <a href="user_management.php"><i class="bi bi-people-fill"></i> Manage Users</a>
+    <a href="broadcast.php"><i class="bi bi-megaphone-fill"></i> Broadcast</a>
   <?php endif; ?>
 
-  <a href="logout.php">🚪 Logout</a>
+  <a href="logout.php"><i class="bi bi-box-arrow-right"></i> Logout</a>
 </div>

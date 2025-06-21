@@ -3,20 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Office Document System</title>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- ✅ Header -->
+
 <div class="header-bar">
-  <div class="d-flex align-items-center">
+  <div style="display: flex; align-items: center;">
     <img src="logo.png" alt="Office Logo">
     <h1>አዲስ ከተማ ክፍለ ከተማ የወረዳ 11 ግንባታ ፈቃድና ቅጥጥር ጽ/ቤት</h1>
   </div>
-  <div class="top-bar">
-    <button class="btn" style="color: #ccc;"><a href="login.php">Login</a></button>
+
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <!-- Social Icons -->
+    <div class="header-social-icons">
+      <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter-x"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+    </div>
+    <div class="top-bar">
+      <button class="btn" ><a href="login.php">Login</a></button>
+    </div>
   </div>
 </div>
 

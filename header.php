@@ -15,19 +15,31 @@ $role = $_SESSION['role'] ?? '';
   <meta charset="UTF-8">
   <title>Office Document System</title>
   <link rel="stylesheet" href="style.css">
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
 
 <?php include 'sidebar.php'; ?>
 
 <div class="header-bar">
-  <img src="assets/logo.png" alt="Office Logo">
-  <h1 style="margin: 0; font-size: 22px;">የቢሮ ሰነድ እና መልዕክት መላኪያ ሲስተም</h1>
+  <div style="display: flex; align-items: center;">
+    <img src="logo.png" alt="Office Logo">
+    <h1>አዲስ ከተማ ክፍለ ከተማ የወረዳ 11 ግንባታ ፈቃድና ቅጥጥር ጽ/ቤት</h1>
+  </div>
 
-  <div class="top-bar">
-    <button class="btn" onclick="openModal()">➕ Send File/Message</button>
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <!-- Social Icons -->
+    <div class="header-social-icons">
+      <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter-x"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <div class="top-bar">
+      <button class="btn" onclick="openModal()">Send</button>
+    </div>
   </div>
 </div>
+
 
 <div class="main-content">
