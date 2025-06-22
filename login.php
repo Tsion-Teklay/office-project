@@ -32,6 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
   <meta charset="UTF-8">
   <title>Login - Office Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
     :root {
   --primary-color: #265295;
@@ -87,17 +90,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
   </style>
 </head>
-<body>
-  <div class="login-container">
-    <h2>Login</h2>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card p-4 shadow-sm border-0" style="width: 100%; max-width: 400px;">
+    <h2 class="text-center mb-4">Login</h2>
+
     <?php if ($error): ?>
-      <p class="error"><?= $error ?></p>
+      <div class="alert alert-danger text-center p-2 py-1 mb-3" role="alert">
+        <?= $error ?>
+      </div>
     <?php endif; ?>
+
     <form method="POST" action="">
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <input type="submit" value="Login" />
+      <div class="mb-3">
+        <input type="email" name="email" class="form-control" placeholder="Email" required />
+      </div>
+
+      <div class="mb-3">
+        <input type="password" name="password" class="form-control" placeholder="Password" required />
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-box-arrow-in-right me-2"></i>Login
+        </button>
+      </div>
     </form>
   </div>
 </body>
+
 </html>

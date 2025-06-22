@@ -35,34 +35,48 @@ $files = $stmt->fetchAll();
 
 <?php include 'header.php'?>
 
-  <h2>Your Received Files</h2>
 
-  <table>
-    <tr>
-      <th>File</th>
-      <th>Sender</th>
-      <th>Deadline</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
+  <div class="main-content">
+  <h2 class="text-center mb-4" style="color: var(--primary-color); font-size: 28px;">Your Received Files</h2>
 
-    <?php foreach ($files as $f): ?>
-    <tr>
-      <td><a href="uploads/<?= $f['file_name'] ?>" download><?= $f['file_name'] ?></a></td>
-      <td><?= $f['sender_name'] ?></td>
-      <td><?= $f['deadline'] ?></td>
-      <td><?= ucfirst($f['status']) ?></td>
-      <td>
-        <?php if ($f['status'] === 'pending'): ?>
-          <a class="btn" href="?mark=seen&id=<?= $f['id'] ?>">Mark as Seen</a>
-        <?php elseif ($f['status'] === 'seen'): ?>
-          <a class="btn" href="?mark=received&id=<?= $f['id'] ?>">Mark as Received</a>
-        <?php else: ?>
-          <span class="btn disabled">Completed</span>
-        <?php endif; ?>
-      </td>
-    </tr>
-    <?php endforeach; ?>
-  </table>
+<div class="container mb-5">
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered text-center align-middle" style="background: var(--glass-bg); backdrop-filter: var(--glass-blur); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;">
+      <thead class="table-light">
+        <tr>
+          <th>File</th>
+          <th>Sender</th>
+          <th>Deadline</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($files as $f): ?>
+        <tr>
+          <td>
+            <a href="uploads/<?= $f['file_name'] ?>" download class="btn btn-sm btn-outline-primary"><?= $f['file_name'] ?></a>
+          </td>
+          <td><?= $f['sender_name'] ?></td>
+          <td><?= $f['deadline'] ?></td>
+          <td><span class="badge bg-<?= $f['status'] === 'pending' ? 'warning' : ($f['status'] === 'seen' ? 'info' : 'success') ?>"><?= ucfirst($f['status']) ?></span></td>
+          <td>
+            <?php if ($f['status'] === 'pending'): ?>
+              <a href="?mark=seen&id=<?= $f['id'] ?>" class="btn btn-sm btn-warning">Mark as Seen</a>
+            <?php elseif ($f['status'] === 'seen'): ?>
+              <a href="?mark=received&id=<?= $f['id'] ?>" class="btn btn-sm btn-success">Mark as Received</a>
+            <?php else: ?>
+              <span class="btn btn-sm btn-secondary disabled">Completed</span>
+            <?php endif; ?>
+          </td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  </div>
+  
 
 <?php include 'footer.php'?>

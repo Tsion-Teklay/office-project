@@ -80,8 +80,124 @@ $users = $pdo->query("SELECT * FROM users ORDER BY role")->fetchAll(PDO::FETCH_A
 ?>
 
 <?php include 'header.php'?>
+<style>
+  /* Users Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  font-family: var(--font-base);
+  color: var(--primary-color);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
 
-  <h2>All Users</h2>
+table thead tr {
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 700;
+}
+
+table th, table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+table tbody tr:hover {
+  background-color: rgba(236, 115, 70, 0.1);
+}
+
+a.edit, a.delete {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+a.edit:hover {
+  color: #d35400; /* slightly darker */
+}
+
+a.delete:hover {
+  color: #c0392b;
+}
+
+/* Form styling */
+form {
+  max-width: 600px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  padding: 25px 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-family: var(--font-base);
+  color: var(--primary-color);
+  margin-bottom: 60px;
+}
+
+form h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--primary-color);
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1.5px solid var(--accent-color);
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-family: var(--font-base);
+  transition: border-color 0.3s ease;
+  color: var(--primary-color);
+  background: white;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+form input[type="submit"] {
+  background: var(--accent-color);
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 12px 30px;
+  border-radius: var(--radius);
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background: #d35400; /* darker orange */
+}
+
+</style>
+
+  <div class="main-content">
+    <h2>All Users</h2>
   <table>
     <tr>
       <th>Name</th>
@@ -136,5 +252,6 @@ $users = $pdo->query("SELECT * FROM users ORDER BY role")->fetchAll(PDO::FETCH_A
   <input type="submit" value="<?= $edit_user ? 'Update User' : 'Add User' ?>">
 </form>
 
+  </div>
 
 <?php include 'footer.php'?>

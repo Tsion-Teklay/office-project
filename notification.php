@@ -41,29 +41,85 @@ $feedbacks = $pdo->query("
 
 
 <?php include 'header.php'?>
-  <div class="section">
-    <h2>📢 Broadcasts</h2>
-    <?php foreach ($broadcasts as $b): ?>
-      <div class="message-box">
-        <div class="sender"><?= $b['sender_name'] ?> (Admin)</div>
-        <div class="time"><?= $b['sent_at'] ?></div>
-        <p><?= $b['content'] ?></p>
-      </div>
-    <?php endforeach; ?>
-  </div>
 
-  <div class="section">
-    <h2>💬 Direct Messages</h2>
-    <?php foreach ($messages as $m): ?>
-      <div class="message-box">
-        <div class="sender"><?= $m['sender_name'] ?></div>
-        <div class="time"><?= $m['sent_at'] ?></div>
-        <p><?= $m['content'] ?></p>
-      </div>
-    <?php endforeach; ?>
-  </div>
+ <style>
+  .section {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px 25px;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-family: var(--font-base);
+  }
 
-  <?php if ($role === 'admin'): ?>
+  .section h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .message-box {
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: var(--radius);
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.65);
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.03);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .message-box:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .sender {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--accent-color);
+    margin-bottom: 6px;
+  }
+
+  .time {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+
+  .message-box p {
+    font-size: 15px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    color: var(--primary-color);
+  }
+</style>
+
+<div class="main-content">
+  <div class="section">
+  <h2>📢 Broadcasts</h2>
+  <?php foreach ($broadcasts as $b): ?>
+    <div class="message-box">
+      <div class="sender"><?= htmlspecialchars($b['sender_name']) ?> (Admin)</div>
+      <div class="time"><?= htmlspecialchars($b['sent_at']) ?></div>
+      <p><?= nl2br(htmlspecialchars($b['content'])) ?></p>
+    </div>
+  <?php endforeach; ?>
+</div>
+
+<div class="section">
+  <h2>💬 Direct Messages</h2>
+  <?php foreach ($messages as $m): ?>
+    <div class="message-box">
+      <div class="sender"><?= htmlspecialchars($m['sender_name']) ?></div>
+      <div class="time"><?= htmlspecialchars($m['sent_at']) ?></div>
+      <p><?= nl2br(htmlspecialchars($m['content'])) ?></p>
+    </div>
+  <?php endforeach; ?>
+</div>
+
+<?php if ($role === 'admin'): ?>
   <div class="section">
     <h2>📝 Client Feedback</h2>
     <?php if (empty($feedbacks)): ?>
@@ -72,13 +128,15 @@ $feedbacks = $pdo->query("
       <?php foreach ($feedbacks as $f): ?>
         <div class="message-box">
           <div class="sender"><?= htmlspecialchars($f['name']) ?> (Client)</div>
-          <div class="time"><?= $f['submitted_at'] ?></div>
+          <div class="time"><?= htmlspecialchars($f['submitted_at']) ?></div>
           <p><?= nl2br(htmlspecialchars($f['message'])) ?></p>
         </div>
       <?php endforeach; ?>
     <?php endif; ?>
   </div>
 <?php endif; ?>
+
+</div>
 
 
 

@@ -15,19 +15,21 @@ $role = $_SESSION['user_role'];
 
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@500&family=Righteous&family=Rajdhani:wght@600&family=Syncopate&display=swap" rel="stylesheet">
 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  
+
 <?php include 'header.php' ?>
 
 <main class="main-content">
-  <h1 style="font-size: 35px; color: var(--primary-color); margin-bottom: 20px;">Dashboard</h1>
-
-
-
-  <!-- Modal Background -->
-  <div id="sendModal" style="display: none; position: fixed; top: 0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 2000;">
-    <div style="background: white; width: 500px; margin: 100px auto; padding: 20px; border-radius: var(--radius); position: relative; box-shadow: var(--shadow);">
-      <span onclick="closeModal()" style="position: absolute; right: 15px; top: 10px; cursor: pointer; font-weight: bold; font-size: 20px;">&times;</span>
-      <h3 style="color: var(--primary-color);">Send File or Message</h3>
-
+ <!-- Modal Background -->
+<div id="sendModal" class="modal-overlay">
+  <div class="custom-modal">
+    <span onclick="closeModal()" class="close-btn">&times;</span>
+    <h3 style="color: var(--primary-color);">Send File or Message</h3>
+    <div class="modal-body-scroll">
       <form id="sendForm" action="send_handler.php" method="POST" enctype="multipart/form-data">
         <label>Type:</label><br>
         <select id="typeSelect" name="send_type" required onchange="toggleSendType()">
@@ -65,6 +67,8 @@ $role = $_SESSION['user_role'];
       </form>
     </div>
   </div>
+</div>
+
 
   <?php
 $user_id = $_SESSION['user_id'];
@@ -108,6 +112,52 @@ if ($role === 'admin') {
 </div>
 
 <style>
+
+  .modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 2000;
+  overflow-y: auto;
+  padding: 30px 15px;
+  box-sizing: border-box;
+}
+
+.custom-modal {
+  background: white;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  margin: auto;
+  padding: 20px 20px 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body-scroll {
+  overflow-y: auto;
+  max-height: 65vh;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
   .summary-container {
     display: flex;
     gap: 20px;
@@ -232,6 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<?php include 'footer.php' ?>
+
 </body>
 </html>
+<?php include 'footer.php' ?>

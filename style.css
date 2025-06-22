@@ -30,23 +30,31 @@ html, body {
   flex-direction: column;
 }
 
+footer{
+  position: sticky; /* or absolute */
+  left: 0;
+  bottom: 0;
+  width: 100vw;  
+}
+
 /* SIDEBAR */
 .sidebar {
-  width: 250px;
-  background-color: white;
-  color: var(--primary-color);
-  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
+  height: calc(100vh - 80px);
+  width: 250px;
+  background-color: white;
+  color: var(--primary-color);
   padding-top: 100px;
   box-shadow: var(--shadow);
   z-index: 100;
 }
 
+
 .sidebar h2 {
   padding-left: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   font-size: 20px;
   font-weight: 600;
 }
@@ -54,7 +62,7 @@ html, body {
 .sidebar a {
   display: block;
   color: var(--primary-color);
-  padding: 14px 24px;
+  padding: 11px 24px;
   text-decoration: none;
   transition: background 0.3s;
 }
@@ -148,6 +156,9 @@ html, body {
   color: var(--text-light);
 }
 
+
+
+
 /* MAIN CONTENT */
 .main-content {
   margin-left: 110px;
@@ -155,6 +166,43 @@ html, body {
   flex: 1;
   min-height: calc(100vh - 80px);
 }
+
+#sendModal form {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+}
+
+#sendModal label {
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+#sendModal select,
+#sendModal input[type="file"],
+#sendModal input[type="date"],
+#sendModal textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .summary-card {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  #sendModal > div {
+    width: 90%;
+    margin: 60px auto;
+  }
+}
+
 
 /* BUTTON */
 .top-bar .btn {

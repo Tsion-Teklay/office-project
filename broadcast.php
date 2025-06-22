@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($content)) {
         $stmt = $pdo->prepare("INSERT INTO notifications (sender_id, content) VALUES (?, ?)");
         $stmt->execute([$sender_id, $content]);
-        $success = "Message sent to all users.";
+        $success = "Message sent to all employees.";
     } else {
         $error = "Message cannot be empty.";
     }
@@ -27,7 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php include 'header.php'?>
 
-  <h2 style="text-align: center;">📢 Send Broadcast Message</h2>
+  <div class="main-content">
+    <h2 style="text-align: center;">📢 Send Broadcast Message</h2>
 
   <?php if ($success): ?>
     <p class="message"><?= $success ?></p>
@@ -38,9 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php endif; ?>
 
   <form method="POST">
-    <label for="message">Your Message to All Users:</label><br>
+    <label for="message">Your Message to All Employees:</label><br>
     <textarea name="message" required></textarea><br>
     <input type="submit" value="Send Message">
   </form>
+  </div>
 
 <?php include 'footer.php'?>
