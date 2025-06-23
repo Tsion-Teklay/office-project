@@ -18,6 +18,23 @@ $role = $_SESSION['role'] ?? '';
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      sidebar.classList.toggle('active');
+    }
+
+        document.addEventListener('click', function (e) {
+      const sidebar = document.querySelector('.sidebar');
+      const toggle = document.getElementById('menuToggle');
+      if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
+        sidebar.classList.remove('active');
+      }
+    });
+
+  </script>
+
+
   <style>
      header{
     background-color: #87B0E8;
@@ -31,6 +48,10 @@ $role = $_SESSION['role'] ?? '';
 <header class=" shadow-sm sticky-top">
   <div class="container-fluid py-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
     <div class="d-flex align-items-center gap-3 mb-3 mb-md-0">
+      <!-- Menu button for small screens -->
+      <button id="menuToggle" class="btn btn-outline-dark d-md-none me-2" onclick="toggleSidebar()">
+        <i class="bi bi-list"></i>
+      </button>
       <img src="logo.png" alt="Office Logo" style="height: 50px;">
       <h1 class="h5 text-center text-md-start mb-0">
         አዲስ ከተማ ክፍለ ከተማ የወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት
