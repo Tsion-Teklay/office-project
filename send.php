@@ -62,10 +62,10 @@
           <label>File Type:</label><br>
           <select name="file_type" id="fileTypeSelect" required onchange="fetchReceivers()">
             <option value="">-- Choose --</option>
-            <option value="file1" class="from_employee" style="<?= $role === 'employee' ? '' : 'display:none;' ?>">File 1</option>
-            <option value="file2" class="from_employee" style="<?= $role === 'employee' ? '' : 'display:none;' ?>">File 2</option>
-            <option value="file3" class="bn_ac" style="<?= $role === 'employee' ? 'display:none;' : '' ?>">File 3</option>
-            <option value="file4" class="to_employee" style="<?= $role === 'employee' ? 'display:none;' : '' ?>">File 4</option>
+            <option value="file1" class="from_employee" style="<?= $role === 'employee' ? '' : 'display:none;' ?>">የሰራተኛ ሪፖርት</option>
+            <option value="file2" class="from_employee" style="<?= $role === 'employee' ? '' : 'display:none;' ?>">የተልዕኮ ሪፖርት</option>
+            <option value="file3" class="bn_ac" style="<?= $role === 'employee' ? 'display:none;' : '' ?>">የጽህፈት ቤት ሪፖርት</option>
+            <option value="file4" class="to_employee" style="<?= $role === 'employee' ? 'display:none;' : '' ?>">የተመሩ ፋይሎች</option>
           </select><br><br>
 
           <label>Select File:</label>
@@ -120,5 +120,13 @@
             .then(res => res.text())
             .then(html => document.getElementById('receiverList').innerHTML = html);
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const deadlineInput = document.querySelector('input[name="deadline"]');
+            if (deadlineInput) {
+            const today = new Date().toISOString().split("T")[0];
+            deadlineInput.setAttribute("min", today);
+            }
+        });
 
 </script>
