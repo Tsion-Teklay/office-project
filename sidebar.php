@@ -12,6 +12,6 @@ $role = $_SESSION['user_role'] ?? '';
     <a href="user_management.php"><i class="bi bi-people-fill"></i> Manage Users</a>
     <a href="broadcast.php"><i class="bi bi-megaphone-fill"></i> Broadcast</a>
   <?php endif; ?>
-  <a href="change_password.php">Change_password</a>
+  <a href="change_password.php"><i class="bi bi-key"></i> Change Password</a>
   <a href="logout.php"><i class="bi bi-box-arrow-right"></i> Logout</a>
 </div>
