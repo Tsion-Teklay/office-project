@@ -53,7 +53,7 @@
       <form id="sendForm" action="send_handler.php" method="POST" enctype="multipart/form-data">
         <label>Type:</label><br>
         <select id="typeSelect" name="send_type" required onchange="toggleSendType()">
-          <option value="">-- Select --</option>
+          <option value="">File or Message?</option>
           <option value="file">File</option>
           <option value="message">Message</option>
         </select><br><br>
@@ -83,7 +83,7 @@
         <label>Select Receivers:</label><br>
         <div id="receiverList"></div><br>
 
-        <input type="submit" value="Send" class="btn" style="background: var(--accent-color); color: white; padding: 10px 20px; border: none; border-radius: var(--radius); cursor: pointer;">
+        <input type="submit" value="Send" class="btn" style="background:black; color: white; padding: 10px 20px; border: none; border-radius: var(--radius); cursor: pointer;">
       </form>
     </div>
   </div>

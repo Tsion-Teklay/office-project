@@ -20,10 +20,10 @@ $role = $_SESSION['role'] ?? '';
 
   <style>
      header{
-    background-color: #aec3e1;
+    background-color: #87B0E8;
   }
   footer{
-    background-color: #aec3e1;
+    background-color: #87B0E8;
   }
   </style>
 </head>
@@ -38,17 +38,14 @@ $role = $_SESSION['role'] ?? '';
     </div>
     <div class="d-flex align-items-center gap-3">
       <div class="d-flex gap-2">
-        <a href="https://facebook.com" target="_blank" class="text-dark"><i class="bi bi-facebook  text-primary fs-5"></i></a>
-        <a href="https://twitter.com" target="_blank" class="text-dark"><i class="bi bi-twitter-x  text-primary fs-5"></i></a>
-        <a href="https://linkedin.com" target="_blank" class="text-dark"><i class="bi bi-linkedin text-primary fs-5"></i></a>
+        <a href="https://www.facebook.com/share/12LjbqheQc6/" target="_blank" class="text-dark"><i class="bi bi-facebook  text-dark fs-5"></i></a>
+        <a href="https://twitter.com" target="_blank" class="text-dark"><i class="bi bi-twitter-x  text-dark fs-5"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="text-dark"><i class="bi bi-linkedin text-dark fs-5"></i></a>
       </div>
-      <button class="btn btn-outline-primary btn-sm" onclick="openModal()">Send</button>
+      <button class="btn btn-outline-dark btn-sm" onclick="openModal()">Send</button>
     </div>
   </div>
 </header>
-
-php
-
 
 <?php include 'sidebar.php'; ?>
 <div class="main-content">

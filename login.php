@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
 
       <div class="d-grid">
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-dark">
           <i class="bi bi-box-arrow-in-right me-2"></i>Login
         </button>
       </div>

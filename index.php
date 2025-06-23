@@ -11,10 +11,10 @@
 
 <style>
   header{
-    background-color: #aec3e1;
+    background-color: #87B0E8;
   }
   footer{
-    background-color: #aec3e1;
+    background-color: #87B0E8;
   }
   .hover-shadow {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -32,7 +32,7 @@
 }
 
 .hover-shadow:hover .icon-wrapper {
-  background-color: #aec3e1;
+  background-color: #87B0E8;
   border-radius: 50%;
   transform: scale(1.15);
   width: 50px;
@@ -64,21 +64,21 @@ form.card textarea {
     </div>
     <div class="d-flex align-items-center gap-3">
       <div class="d-flex gap-2">
-        <a href="https://facebook.com" target="_blank" class="text-dark"><i class="bi bi-facebook  text-primary fs-5"></i></a>
-        <a href="https://twitter.com" target="_blank" class="text-dark"><i class="bi bi-twitter-x  text-primary fs-5"></i></a>
-        <a href="https://linkedin.com" target="_blank" class="text-dark"><i class="bi bi-linkedin text-primary fs-5"></i></a>
+        <a href="https://www.facebook.com/share/12LjbqheQc6/" target="_blank" class="text-dark"><i class="bi bi-facebook  text-dark fs-5"></i></a>
+        <a href="https://twitter.com" target="_blank" class="text-dark"><i class="bi bi-twitter-x  text-dark fs-5"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="text-dark"><i class="bi bi-linkedin text-dark fs-5"></i></a>
       </div>
-      <a href="login.php" class="btn btn-outline-primary btn-sm">Login</a>
+      <a href="login.php" class="btn btn-outline-dark btn-sm">Login</a>
     </div>
   </div>
 </header>
 
 <!-- ✅ Main Content -->
- <section class="mb-5 py-5 hero-section text-dark" style="background-color: #aec3e1;">
+ <section class="mb-5 py-5 hero-section text-dark" style="background-color: #87B0E8;">
  <div class="container">
     <div class="row align-items-center">
       <div class="col-md-6 mb-3 mb-md-0">
-        <h2 class="fw-bold">እንኳን ደኅና መጣችሁ!</h2>
+        <h1 class="fw-bold text-dark h1" style="font-size: 60px;">እንኳን ደኅና መጣችሁ!</h1>
         <p class="lead">በወረዳ 11 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት የተሰራ ሲስተም ላይ ነን።</p>
       </div>
       <div class="col-md-6 text-center">
@@ -288,9 +288,9 @@ form.card textarea {
 
   <!-- Feedback Form -->
   <section class="mb-5">
-  <h2 class="mb-4 text-center">Feedback / Message to Admin</h2>
+  <h2 class="mb-4 ">Feedback / Message to Admin</h2>
   <div class="d-flex justify-content-center">
-    <form action="submit_feedback.php" method="POST" class="card p-4 shadow border-0 w-100" style="max-width: 600px;">
+    <form action="submit_feedback.php" method="POST" class="card p-4 shadow border-0 w-100" style="max-width: 800px;">
       <div class="mb-3">
         <label for="client_name" class="form-label fw-semibold">Your Name</label>
         <input type="text" name="client_name" id="client_name" class="form-control" placeholder="Enter your name" required>
@@ -302,7 +302,7 @@ form.card textarea {
       </div>
 
       <div class="d-grid">
-        <button type="submit" class="btn btn-primary btn-lg">
+        <button type="submit" class="btn btn-dark btn-lg">
           <i class="bi bi-send me-2"></i>Send Message
         </button>
       </div>

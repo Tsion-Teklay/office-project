@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="style.css">
 <style>
   footer {
-  background-color: #aec3e1;
+  background-color: #87B0E8;
   width: 100%;
   position: fixed;
   bottom: 0;
