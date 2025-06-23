@@ -52,3 +52,6 @@ php
 
 <?php include 'sidebar.php'; ?>
 <div class="main-content">
+<?php 
+include 'send.php';
+?>

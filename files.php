@@ -13,7 +13,7 @@ if (isset($_GET['mark']) && isset($_GET['id'])) {
     $status = $_GET['mark'];
     $file_id = $_GET['id'];
 
-    if (in_array($status, ['seen', 'received'])) {
+    if (in_array($status, ['received', 'completed'])) {
         $stmt = $pdo->prepare("UPDATE files SET status = ? WHERE id = ? AND receiver_id = ?");
         $stmt->execute([$status, $file_id, $user_id]);
     }
@@ -62,9 +62,9 @@ $files = $stmt->fetchAll();
           <td><span class="badge bg-<?= $f['status'] === 'pending' ? 'warning' : ($f['status'] === 'seen' ? 'info' : 'success') ?>"><?= ucfirst($f['status']) ?></span></td>
           <td>
             <?php if ($f['status'] === 'pending'): ?>
-              <a href="?mark=seen&id=<?= $f['id'] ?>" class="btn btn-sm btn-warning">Mark as Seen</a>
-            <?php elseif ($f['status'] === 'seen'): ?>
-              <a href="?mark=received&id=<?= $f['id'] ?>" class="btn btn-sm btn-success">Mark as Received</a>
+              <a href="?mark=received&id=<?= $f['id'] ?>" class="btn btn-sm btn-warning">Mark as Received</a>
+            <?php elseif ($f['status'] === 'received'): ?>
+              <a href="?mark=completed&id=<?= $f['id'] ?>" class="btn btn-sm btn-success">Mark as Completed</a>
             <?php else: ?>
               <span class="btn btn-sm btn-secondary disabled">Completed</span>
             <?php endif; ?>

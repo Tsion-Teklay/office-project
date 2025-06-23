@@ -97,16 +97,19 @@ $feedbacks = $pdo->query("
 </style>
 
 <div class="main-content">
+ <?php if ($role !== 'admin'): ?>
   <div class="section">
-  <h2>📢 Broadcasts</h2>
-  <?php foreach ($broadcasts as $b): ?>
-    <div class="message-box">
-      <div class="sender"><?= htmlspecialchars($b['sender_name']) ?> (Admin)</div>
-      <div class="time"><?= htmlspecialchars($b['sent_at']) ?></div>
-      <p><?= nl2br(htmlspecialchars($b['content'])) ?></p>
-    </div>
-  <?php endforeach; ?>
-</div>
+    <h2>📢 Broadcasts</h2>
+    <?php foreach ($broadcasts as $b): ?>
+      <div class="message-box">
+        <div class="sender"><?= htmlspecialchars($b['sender_name']) ?> (Admin)</div>
+        <div class="time"><?= htmlspecialchars($b['sent_at']) ?></div>
+        <p><?= nl2br(htmlspecialchars($b['content'])) ?></p>
+      </div>
+    <?php endforeach; ?>
+  </div>
+<?php endif; ?>
+
 
 <div class="section">
   <h2>💬 Direct Messages</h2>

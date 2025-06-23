@@ -1,3 +1,50 @@
+<link rel="stylesheet" href="style.css">
+<style>
+  .modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 2000;
+  overflow-y: auto;
+  padding: 30px 15px;
+  box-sizing: border-box;
+}
+
+.custom-modal {
+  background: white;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  margin: auto;
+  padding: 20px 20px 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body-scroll {
+  overflow-y: auto;
+  max-height: 65vh;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+}
+</style>
+
 <div id="sendModal" class="modal-overlay">
   <div class="custom-modal">
     <span onclick="closeModal()" class="close-btn">&times;</span>
