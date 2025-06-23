@@ -23,7 +23,7 @@
 html, body {
   height: 100%;
   font-family: var(--font-base);
-  background-color: var(--bg-color);
+  background-color: #e5e6e7;
   color: var(--text-dark);
   overflow-x: hidden;
   display: flex;

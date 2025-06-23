@@ -79,7 +79,7 @@ form.card textarea {
     <div class="row align-items-center">
       <div class="col-md-6 mb-3 mb-md-0">
         <h1 class="fw-bold text-dark h1" style="font-size: 60px;">እንኳን ደኅና መጣችሁ!</h1>
-        <p class="lead">በወረዳ 11 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት የተሰራ ሲስተም ላይ ነን።</p>
+        <p class="lead">በወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት የተሰራ ሲስተም ላይ ነን።</p>
       </div>
       <div class="col-md-6 text-center">
         <img src="tigist.jpg" alt="Hero Image" class="img-fluid rounded" style="max-height: 200px; object-fit: cover;">

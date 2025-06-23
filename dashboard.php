@@ -49,6 +49,11 @@ if ($role === 'admin') {
 }
 ?>
 
+<div class="text-center">
+  <h2>እንኳን ወደ የቢሮ ሰነድ እና መልዕክት ሲስተም በደህና መጡ</h2>
+  <p class="text-muted">በዚህ ሲስተም በቀላሉ ሰነዶችን ማስተላለፍ፣ መልዕክቶችን መላክ፣ እና ሥራዎችን ማከታተል ይችላሉ። ለማስተዳደር የጎን መነሻ ሜኑን ይጠቀሙ።</p>
+</div>
+
 <div class="summary-container">
   <div class="summary-card">
     <div class="summary-count" data-target="<?= $pendingFiles ?>">0</div>
