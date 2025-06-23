@@ -74,11 +74,22 @@ form.card textarea {
 </header>
 
 <!-- ✅ Main Content -->
+ <section class="mb-5 py-5 hero-section text-dark" style="background-color: #aec3e1;">
+ <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <h2 class="fw-bold">እንኳን ደኅና መጣችሁ!</h2>
+        <p class="lead">በወረዳ 11 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት የተሰራ ሲስተም ላይ ነን።</p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="tigist.jpg" alt="Hero Image" class="img-fluid rounded" style="max-height: 200px; object-fit: cover;">
+      </div>
+    </div>
+  </div>
+</section>
 <main class="container py-5">
-  <section class="mb-5">
-    <div>እንኳን ደኅና መጣችሁ!</div>
-    <div><img src="tigist.jpg" alt=""></div>
-  </section>
+  
+
   <!-- Vision Section -->
   <section class="mb-5">
 አዲስ ከተማ ክፍለ ከተማ የወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት በአዲስ አበባ ክፍለ ከተማ ከሚገኙ 12 የወረዳ አስተዳደሮች ውስጥ አንዱ የወረዳ 4 አስተዳደር ሲሆን በዚህ ወረዳ ውስጥ 5 የተለያዩ ነባር ቀበሌዎች ማለትም 07/17፣ 07/26፣ 06/01፣ 06/08 እና 24/10 የተባሉ ነባር ቀበሌዎች ሲኖሩት በ9 ቀጠናዎች የተከፋፈለ ነው።
