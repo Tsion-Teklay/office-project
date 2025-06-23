@@ -46,5 +46,9 @@ $role = $_SESSION['role'] ?? '';
     </div>
   </div>
 </header>
+
+php
+
+
 <?php include 'sidebar.php'; ?>
 <div class="main-content">
