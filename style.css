@@ -361,6 +361,7 @@ form input[type="submit"]:hover {
     position: relative;
     padding-top: 20px;
     transform: translateX(-100%);
+    z-index: 1000;
   }
 
   .sidebar.active {
