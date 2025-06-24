@@ -26,7 +26,7 @@ $role = $_SESSION['user_role'];
 <main class="main-content">
  <!-- Modal Background -->
 
-
+ 
   <?php
 $user_id = $_SESSION['user_id'];
 
@@ -49,10 +49,15 @@ if ($role === 'admin') {
 }
 ?>
 
-<div class="text-center">
-  <h2>እንኳን ወደ የቢሮ ሰነድ እና መልዕክት ሲስተም በደህና መጡ</h2>
-  <p class="text-muted">በዚህ ሲስተም በቀላሉ ሰነዶችን ማስተላለፍ፣ መልዕክቶችን መላክ፣ እና ሥራዎችን ማከታተል ይችላሉ። ለማስተዳደር የጎን መነሻ ሜኑን ይጠቀሙ።</p>
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8 text-center">
+      <h2 class="fs-4 fs-md-3 fs-lg-2">እንኳን ወደ የቢሮ ሰነድ እና መልዕክት ሲስተም በደህና መጡ</h2>
+      <p class="text-muted fs-6 fs-md-5">በዚህ ሲስተም በቀላሉ ሰነዶችን ማስተላለፍ፣ መልዕክቶችን መላክ፣ እና ሥራዎችን ማከታተል ይችላሉ። ለማስተዳደር የጎን መነሻ ሜኑን ይጠቀሙ።</p>
+    </div>
+  </div>
 </div>
+
 
 <div class="summary-container">
   <div class="summary-card">
@@ -168,8 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
-</body>
-</html>
 <?php include 'footer.php' ?>
 
 

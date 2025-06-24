@@ -5,10 +5,8 @@
   footer {
   background-color: #87B0E8;
   width: 100%;
-  position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
   z-index: 999;
 }
 

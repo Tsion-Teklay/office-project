@@ -31,10 +31,10 @@ html, body {
 }
 
 footer{
-  position: sticky; /* or absolute */
   left: 0;
   bottom: 0;
-  width: 100vw;  
+  width: 100vw; 
+  z-index: 999; 
 }
 
 /* SIDEBAR */
@@ -42,13 +42,12 @@ footer{
   position: fixed;
   top: 0;
   left: 0;
-  height: calc(100vh - 80px);
+  height: 100vh;
   width: 250px;
   background-color: white;
   color: var(--primary-color);
   padding-top: 100px;
   box-shadow: var(--shadow);
-  z-index: 100;
 }
 
 
@@ -161,6 +160,7 @@ footer{
 
 /* MAIN CONTENT */
 .main-content {
+  padding: 50px 30px 100px;
   margin-left: 110px;
   flex: 1;
   min-height: calc(100vh - 80px);
@@ -342,11 +342,10 @@ form input[type="submit"]:hover {
   text-align: center;
   padding: 15px 20px;
   font-size: 13px;
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .footer a {
@@ -358,7 +357,7 @@ form input[type="submit"]:hover {
 @media (max-width: 768px) {
   .sidebar {
     width: 100%;
-    height: auto;
+    height: 100vh;
     position: relative;
     padding-top: 20px;
     transform: translateX(-100%);
