@@ -33,10 +33,16 @@ $stmt->execute([$user_id]);
 $files = $stmt->fetchAll();
 ?>
 
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@500&family=Righteous&family=Rajdhani:wght@600&family=Syncopate&display=swap" rel="stylesheet">
+
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
 <?php include 'header.php'?>
 
 
-  <div class="main-content">
+<main class="main-content">
   <h2 class="text-center mb-4" style="color: var(--primary-color); font-size: 28px;">Your Received Files</h2>
 
 <div class="container mb-5">
@@ -83,7 +89,7 @@ $files = $stmt->fetchAll();
   </div>
 </div>
 
-  </div>
+  </main>
   
 
 <?php include 'footer.php'?>

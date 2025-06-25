@@ -65,7 +65,11 @@ $feedbacks = $pdo->query("
 
 
 ?>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@500&family=Righteous&family=Rajdhani:wght@600&family=Syncopate&display=swap" rel="stylesheet">
 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
 
 <?php include 'header.php'?>
@@ -124,7 +128,7 @@ $feedbacks = $pdo->query("
   }
 </style>
 
-<div class="main-content">
+<main class="main-content">
  <?php if ($role !== 'admin'): ?>
   <div class="section">
     <h2>📢 Broadcasts</h2>
@@ -200,7 +204,7 @@ $feedbacks = $pdo->query("
   </div>
 <?php endif; ?>
 
-</div>
+</main>
 
 
     `
