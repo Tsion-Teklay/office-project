@@ -51,7 +51,7 @@ form.card textarea {
 
 </style>
 
-<body class="bg-light">
+<body>
   <div class="d-flex flex-column min-vh-100">
 
 <!-- ✅ Header -->

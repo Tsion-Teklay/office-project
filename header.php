@@ -44,7 +44,7 @@ $role = $_SESSION['role'] ?? '';
   }
   </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100" >
 <header class=" shadow-sm sticky-top">
   <div class="container-fluid py-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
     <div class="d-flex align-items-center gap-3 mb-3 mb-md-0">
