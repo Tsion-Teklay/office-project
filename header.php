@@ -100,7 +100,7 @@ $role = $_SESSION['role'] ?? '';
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary"><i class="bi bi-key me-1"></i> Change Password</button>
+        <button type="submit" class="btn btn-dark"><i class="bi bi-key me-1"></i> Change Password</button>
       </div>
     </form>
   </div>
