@@ -31,7 +31,35 @@ $stmt = $pdo->prepare("
 ");
 $stmt->execute([$user_id]);
 $files = $stmt->fetchAll();
+
+$message = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $current = $_POST['current_password'];
+    $new = $_POST['new_password'];
+    $confirm = $_POST['confirm_password'];
+
+    $stmt = $pdo->prepare("SELECT password FROM users WHERE id = ?");
+    $stmt->execute([$user_id]);
+    $user = $stmt->fetch();
+
+    if (!$user || !password_verify($current, $user['password'])) {
+        $message = "❌ Current password is incorrect.";
+    } elseif (strlen($new) < 6) {
+        $message = "❌ New password must be at least 6 characters.";
+    } elseif ($new !== $confirm) {
+        $message = "❌ New passwords do not match.";
+    } else {
+        $new_hash = password_hash($new, PASSWORD_DEFAULT);
+        $stmt = $pdo->prepare("UPDATE users SET password = ? WHERE id = ?");
+        $stmt->execute([$new_hash, $user_id]);
+
+        $message = "✅ Password changed successfully.";
+    }
+}
 ?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@500&family=Righteous&family=Rajdhani:wght@600&family=Syncopate&display=swap" rel="stylesheet">
 

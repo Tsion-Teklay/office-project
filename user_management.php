@@ -74,10 +74,38 @@ if (isset($_GET['edit'])) {
     $edit_user = $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+$user_id = $_SESSION['user_id'];
+$message = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $current = $_POST['current_password'];
+    $new = $_POST['new_password'];
+    $confirm = $_POST['confirm_password'];
+
+    $stmt = $pdo->prepare("SELECT password FROM users WHERE id = ?");
+    $stmt->execute([$user_id]);
+    $user = $stmt->fetch();
+
+    if (!$user || !password_verify($current, $user['password'])) {
+        $message = "❌ Current password is incorrect.";
+    } elseif (strlen($new) < 6) {
+        $message = "❌ New password must be at least 6 characters.";
+    } elseif ($new !== $confirm) {
+        $message = "❌ New passwords do not match.";
+    } else {
+        $new_hash = password_hash($new, PASSWORD_DEFAULT);
+        $stmt = $pdo->prepare("UPDATE users SET password = ? WHERE id = ?");
+        $stmt->execute([$new_hash, $user_id]);
+
+        $message = "✅ Password changed successfully.";
+    }
+}
 
 // Fetch users
 $users = $pdo->query("SELECT * FROM users ORDER BY role")->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
