@@ -79,6 +79,10 @@ if (isset($_GET['edit'])) {
 $users = $pdo->query("SELECT * FROM users ORDER BY role")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <?php include 'header.php'?>
 <style>
   /* Users Table */
@@ -197,6 +201,7 @@ form input[type="submit"]:hover {
 </style>
 
   <div class="main-content">
+  <section>
     <h2>All Users</h2>
   <table>
     <tr>
@@ -219,38 +224,57 @@ form input[type="submit"]:hover {
       </tr>
     <?php endforeach; ?>
   </table>
+  </section>
 
+<section>
   <h2><?= $edit_user ? 'Edit User' : 'Add New User' ?></h2>
 
-<form method="POST">
-  <?php if ($edit_user): ?>
-    <input type="hidden" name="update_user" value="1">
-    <input type="hidden" name="user_id" value="<?= $edit_user['id'] ?>">
-  <?php else: ?>
-    <input type="hidden" name="add_user" value="1">
-  <?php endif; ?>
+ <div class="row justify-content-center">
+  <form method="POST" class="card p-4 shadow-sm border-0" style="max-width: 800px;">
+    <?php if ($edit_user): ?>
+      <input type="hidden" name="update_user" value="1">
+      <input type="hidden" name="user_id" value="<?= $edit_user['id'] ?>">
+    <?php else: ?>
+      <input type="hidden" name="add_user" value="1">
+    <?php endif; ?>
 
-  <label>Name</label>
-  <input type="text" name="name" required value="<?= $edit_user['name'] ?? '' ?>">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" name="name" required value="<?= $edit_user['name'] ?? '' ?>" class="form-control">
+    </div>
 
-  <label>Email</label>
-  <input type="email" name="email" required value="<?= $edit_user['email'] ?? '' ?>">
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" name="email" required value="<?= $edit_user['email'] ?? '' ?>" class="form-control">
+    </div>
 
-  <label><?= $edit_user ? 'New Password (leave blank to keep current)' : 'Password' ?></label>
-  <input type="password" name="password" <?= $edit_user ? '' : 'required' ?>>
+    <div class="mb-3">
+      <label class="form-label"><?= $edit_user ? 'New Password (leave blank to keep current)' : 'Password' ?></label>
+      <input type="password" name="password" <?= $edit_user ? '' : 'required' ?> class="form-control">
+    </div>
 
-  <label>Role</label>
-  <select name="role" required>
-    <option value="employee" <?= isset($edit_user) && $edit_user['role'] === 'employee' ? 'selected' : '' ?>>Employee</option>
-    <option value="coordinator" <?= isset($edit_user) && $edit_user['role'] === 'coordinator' ? 'selected' : '' ?>>Coordinator</option>
-    <option value="admin" <?= isset($edit_user) && $edit_user['role'] === 'admin' ? 'selected' : '' ?>>Admin</option>
-  </select>
+    <div class="mb-3">
+      <label class="form-label">Role</label>
+      <select name="role" required class="form-select">
+        <option value="employee" <?= isset($edit_user) && $edit_user['role'] === 'employee' ? 'selected' : '' ?>>Employee</option>
+        <option value="coordinator" <?= isset($edit_user) && $edit_user['role'] === 'coordinator' ? 'selected' : '' ?>>Coordinator (አስተባባሪ)</option>
+        <option value="admin" <?= isset($edit_user) && $edit_user['role'] === 'admin' ? 'selected' : '' ?>>Admin (ሃላፊ)</option>
+      </select>
+    </div>
 
-  <label>Title (if employee)</label>
-  <input type="text" name="title" value="<?= $edit_user['title'] ?? '' ?>">
+    <div class="mb-4">
+      <label class="form-label">Title (if employee)</label>
+      <input type="text" name="title" value="<?= $edit_user['title'] ?? '' ?>" class="form-control">
+    </div>
 
-  <input type="submit" value="<?= $edit_user ? 'Update User' : 'Add User' ?>">
-</form>
+    <div class="d-grid">
+      <button type="submit" class="btn btn-dark">
+        <?= $edit_user ? 'Update User' : 'Add User' ?>
+      </button>
+    </div>
+  </form>
+</div>
+</section>
 
   </div>
 

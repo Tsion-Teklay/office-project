@@ -10,6 +10,33 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 $role = $_SESSION['role'] ?? '';
 
+// Delete a broadcast
+if (isset($_GET['delete_broadcast']) && $role === 'admin') {
+    $id = $_GET['delete_broadcast'];
+    $stmt = $pdo->prepare("DELETE FROM notifications WHERE id = ?");
+    $stmt->execute([$id]);
+    header("Location: notification.php");
+    exit;
+}
+
+// Delete a direct message
+if (isset($_GET['delete_message'])) {
+    $id = $_GET['delete_message'];
+    $stmt = $pdo->prepare("DELETE FROM messages WHERE id = ? AND receiver_id = ?");
+    $stmt->execute([$id, $user_id]);
+    header("Location: notification.php");
+    exit;
+}
+
+// Delete client feedback (admin only)
+if (isset($_GET['delete_feedback'])) {
+    $id = $_GET['delete_feedback'];
+    $stmt = $pdo->prepare("DELETE FROM client_feedback WHERE id = ?");
+    $stmt->execute([$id]);
+    header("Location: notification.php");
+    exit;
+}
+
 // Get broadcast messages
 $broadcasts = $pdo->query("
   SELECT n.*, u.name AS sender_name 
@@ -31,10 +58,11 @@ $messages = $stmt->fetchAll();
 
 // Get client feedback
 $feedbacks = $pdo->query("
-  SELECT name, message, submitted_at 
+  SELECT id, name, message, submitted_at 
   FROM client_feedback 
   ORDER BY submitted_at DESC
 ")->fetchAll();
+
 
 ?>
 
@@ -100,47 +128,80 @@ $feedbacks = $pdo->query("
  <?php if ($role !== 'admin'): ?>
   <div class="section">
     <h2>📢 Broadcasts</h2>
-    <?php foreach ($broadcasts as $b): ?>
-      <div class="message-box">
+<?php if (empty($broadcasts)): ?>
+  <p class="text-muted fst-italic">No broadcast messages yet.</p>
+<?php else: ?>
+  <?php foreach ($broadcasts as $b): ?>
+    <div class="message-box d-flex justify-content-between align-items-start">
+      <div>
         <div class="sender"><?= htmlspecialchars($b['sender_name']) ?> (Admin)</div>
         <div class="time"><?= htmlspecialchars($b['sent_at']) ?></div>
         <p><?= nl2br(htmlspecialchars($b['content'])) ?></p>
       </div>
-    <?php endforeach; ?>
+      <?php if ($role === 'admin'): ?>
+        <a href="notification.php?delete_broadcast=<?= $b['id'] ?>" class="btn btn-sm btn-outline-danger ms-3" title="Delete">
+  <i class="bi bi-trash3-fill"></i>
+</a>
+
+      <?php endif; ?>
+    </div>
+  <?php endforeach; ?>
+<?php endif; ?>
+
   </div>
 <?php endif; ?>
 
 
 <div class="section">
   <h2>💬 Direct Messages</h2>
+<?php if (empty($messages)): ?>
+  <p class="text-muted fst-italic">No direct messages received.</p>
+<?php else: ?>
   <?php foreach ($messages as $m): ?>
-    <div class="message-box">
-      <div class="sender"><?= htmlspecialchars($m['sender_name']) ?></div>
-      <div class="time"><?= htmlspecialchars($m['sent_at']) ?></div>
-      <p><?= nl2br(htmlspecialchars($m['content'])) ?></p>
+    <div class="message-box d-flex justify-content-between align-items-start">
+      <div>
+        <div class="sender"><?= htmlspecialchars($m['sender_name']) ?></div>
+        <div class="time"><?= htmlspecialchars($m['sent_at']) ?></div>
+        <p><?= nl2br(htmlspecialchars($m['content'])) ?></p>
+      </div>
+      <a href="notification.php?delete_message=<?= $m['id'] ?>" class="btn btn-sm btn-outline-danger ms-3" title="Delete">
+  <i class="bi bi-trash3-fill"></i>
+</a>
+
+
     </div>
   <?php endforeach; ?>
+<?php endif; ?>
+
 </div>
 
 <?php if ($role === 'admin'): ?>
   <div class="section">
     <h2>📝 Client Feedback</h2>
-    <?php if (empty($feedbacks)): ?>
-      <p>No feedback received yet.</p>
-    <?php else: ?>
-      <?php foreach ($feedbacks as $f): ?>
-        <div class="message-box">
-          <div class="sender"><?= htmlspecialchars($f['name']) ?> (Client)</div>
-          <div class="time"><?= htmlspecialchars($f['submitted_at']) ?></div>
-          <p><?= nl2br(htmlspecialchars($f['message'])) ?></p>
-        </div>
-      <?php endforeach; ?>
-    <?php endif; ?>
+<?php if (empty($feedbacks)): ?>
+  <p class="text-muted fst-italic">No feedback received yet.</p>
+<?php else: ?>
+  <?php foreach ($feedbacks as $f): ?>
+    <div class="message-box d-flex justify-content-between align-items-start">
+      <div>
+        <div class="sender"><?= htmlspecialchars($f['name']) ?> (Client)</div>
+        <div class="time"><?= htmlspecialchars($f['submitted_at']) ?></div>
+        <p><?= nl2br(htmlspecialchars($f['message'])) ?></p>
+      </div>
+      <!-- added now -->
+      <a href="?delete_feedback=<?= $f['id'] ?>" class="btn btn-sm btn-outline-danger ms-3" title="Delete">
+  <i class="bi bi-trash3-fill"></i>
+</a>
+
+    </div>
+  <?php endforeach; ?>
+<?php endif; ?>
+
   </div>
 <?php endif; ?>
 
 </div>
 
 
-
+    `
 <?php include 'footer.php'?>

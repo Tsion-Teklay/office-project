@@ -40,7 +40,7 @@ $files = $stmt->fetchAll();
       <tbody>
         <?php foreach ($files as $f): ?>
         <tr>
-          <td>
+          <td class="text-start ps-4">
             <i class="bi bi-file-earmark-text-fill me-1 text-primary"></i>
             <?= $f['file_name'] ?>
           </td>
@@ -48,11 +48,12 @@ $files = $stmt->fetchAll();
           <td><?= $f['deadline'] ?></td>
           <td>
             <span class="badge bg-<?= 
-              $f['status'] === 'pending' ? 'warning' : 
-              ($f['status'] === 'seen' ? 'info' : 'success') 
-            ?>">
-              <?= ucfirst($f['status']) ?>
+  $f['status'] === 'pending' ? 'warning' : 
+  ($f['status'] === 'seen' ? 'info' : 'success') 
+?> d-inline-block w-100 py-2" style="min-width: 90px;">
+  <?= ucfirst($f['status']) ?>
             </span>
+
           </td>
           <td><?= date('F j, Y h:i A', strtotime($f['sent_at'])) ?></td>
         </tr>

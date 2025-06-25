@@ -54,20 +54,27 @@ $files = $stmt->fetchAll();
       <tbody>
         <?php foreach ($files as $f): ?>
         <tr>
-          <td>
+          <td class="text-start ps-4">
             <a href="uploads/<?= $f['file_name'] ?>" download class="btn btn-sm btn-outline-primary"><?= $f['file_name'] ?></a>
           </td>
           <td><?= $f['sender_name'] ?></td>
           <td><?= $f['deadline'] ?></td>
-          <td><span class="badge bg-<?= $f['status'] === 'pending' ? 'warning' : ($f['status'] === 'seen' ? 'info' : 'success') ?>"><?= ucfirst($f['status']) ?></span></td>
+          <td><span class="badge bg-<?= 
+            $f['status'] === 'pending' ? 'warning' : 
+            ($f['status'] === 'seen' ? 'info' : 'success') 
+          ?> d-inline-block text-white py-2" style="min-width: 100px;">
+            <?= ucfirst($f['status']) ?>
+          </span>
+          </td>
           <td>
             <?php if ($f['status'] === 'pending'): ?>
-              <a href="?mark=received&id=<?= $f['id'] ?>" class="btn btn-sm btn-warning">Mark as Received</a>
-            <?php elseif ($f['status'] === 'received'): ?>
-              <a href="?mark=completed&id=<?= $f['id'] ?>" class="btn btn-sm btn-success">Mark as Completed</a>
-            <?php else: ?>
-              <span class="btn btn-sm btn-secondary disabled">Completed</span>
-            <?php endif; ?>
+  <a href="?mark=received&id=<?= $f['id'] ?>" class="btn btn-sm btn-warning w-100" style="min-width: 150px;">Mark as Received</a>
+<?php elseif ($f['status'] === 'received'): ?>
+  <a href="?mark=completed&id=<?= $f['id'] ?>" class="btn btn-sm btn-success w-100" style="min-width: 150px;">Mark as Completed</a>
+<?php else: ?>
+  <span class="btn btn-sm btn-secondary disabled w-100" style="min-width: 150px;">Completed</span>
+<?php endif; ?>
+
           </td>
         </tr>
         <?php endforeach; ?>

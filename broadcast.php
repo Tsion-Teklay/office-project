@@ -24,11 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 <?php include 'header.php'?>
 
   <div class="main-content">
-    <h2 style="text-align: center;">📢 Send Broadcast Message</h2>
+  <section>
+    <h2 style="text-align: center;"> Send Broadcast Message to All Employees</h2>
 
   <?php if ($success): ?>
     <p class="message"><?= $success ?></p>
@@ -41,8 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <form method="POST">
     <label for="message">Your Message to All Employees:</label><br>
     <textarea name="message" required></textarea><br>
-    <input type="submit" value="Send Message">
+    <button type="submit" class="btn btn-dark">Send Message</button>
   </form>
+  </section>
   </div>
 
 <?php include 'footer.php'?>

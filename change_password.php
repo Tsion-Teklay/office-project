@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $new = $_POST['new_password'];
     $confirm = $_POST['confirm_password'];
 
-    // Fetch current password hash
     $stmt = $pdo->prepare("SELECT password FROM users WHERE id = ?");
     $stmt->execute([$user_id]);
     $user = $stmt->fetch();
@@ -27,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($new !== $confirm) {
         $message = "❌ New passwords do not match.";
     } else {
-        // Update password
         $new_hash = password_hash($new, PASSWORD_DEFAULT);
         $stmt = $pdo->prepare("UPDATE users SET password = ? WHERE id = ?");
         $stmt->execute([$new_hash, $user_id]);
@@ -37,27 +35,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
 <?php include 'header.php'; ?>
 
 <div class="main-content">
-  <h2>Change Password</h2>
+  <section>
+    <h2 class=" card-title mb-3" style="color:#265295">Change Password</h2>
 
-  <?php if ($message): ?>
-    <p style="color:<?= strpos($message, '✅') === 0 ? 'green' : 'red' ?>"><?= $message ?></p>
-  <?php endif; ?>
+    <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="card shadow-sm border-0">
+          <div class="card-body">
+            <?php if ($message): ?>
+              <div class="alert <?= strpos($message, '✅') === 0 ? 'alert-success' : 'alert-danger' ?>">
+                <?= htmlspecialchars($message) ?>
+              </div>
+            <?php endif; ?>
 
-  <form method="POST" style="max-width: 400px;">
-    <label>Current Password:</label>
-    <input type="password" name="current_password" required><br><br>
+            <form method="POST" novalidate>
+              <div class="mb-3">
+                <label for="current_password" class="form-label">Current Password</label>
+                <input type="password" class="form-control" id="current_password" name="current_password" required>
+              </div>
 
-    <label>New Password:</label>
-    <input type="password" name="new_password" required><br><br>
+              <div class="mb-3">
+                <label for="new_password" class="form-label">New Password</label>
+                <input type="password" class="form-control" id="new_password" name="new_password" required>
+              </div>
 
-    <label>Confirm New Password:</label>
-    <input type="password" name="confirm_password" required><br><br>
+              <div class="mb-3">
+                <label for="confirm_password" class="form-label">Confirm New Password</label>
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+              </div>
 
-    <input type="submit" value="Change Password" style="background-color: #008E87; color: white; padding: 8px 20px; border: none;">
-  </form>
+              <button type="submit" class="btn btn-dark w-100" style="border: none;">
+                <i class="bi bi-key me-1"></i> Change Password
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
 </div>
 
 <?php include 'footer.php'; ?>
