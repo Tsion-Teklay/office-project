@@ -159,7 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <main class="main-content">
  <?php if ($role !== 'admin'): ?>
 <div class="section">
-  <h2>📢 Broadcasts</h2>
+  <h2>Broadcasts</h2>
   <?php if (empty($broadcasts)): ?>
   <p class="text-muted fst-italic">No broadcast messages yet.</p>
   <?php else: ?>
@@ -182,7 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 <div class="section">
-  <h2>💬 Direct Messages</h2>
+  <h2>Direct Messages</h2>
 <?php if (empty($messages)): ?>
   <p class="text-muted fst-italic">No direct messages received.</p>
 <?php else: ?>
@@ -206,7 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php if ($role === 'admin'): ?>
   <div class="section">
-    <h2>📝 Client Feedback</h2>
+    <h2>Client Feedback</h2>
 <?php if (empty($feedbacks)): ?>
   <p class="text-muted fst-italic">No feedback received yet.</p>
 <?php else: ?>
@@ -232,5 +232,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </main>
 
 
-    `
 <?php include 'footer.php'?>

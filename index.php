@@ -334,7 +334,7 @@ form.card textarea {
     <footer class=" text-center py-4 mt-5">
       <div class="container">
         <p class="mb-1">© 2025 የወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት</p>
-        <p class="mb-0">Designed & Developed by IT Team | <a href="mailto:info@wereda11.gov.et" class="text-white text-decoration-underline">info@wereda11.gov.et</a></p>
+        <p class="mb-0">Designed & Developed by IT Team </p>
       </div>
     </footer>
 
