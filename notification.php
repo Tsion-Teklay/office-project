@@ -11,7 +11,7 @@ $user_id = $_SESSION['user_id'];
 $role = $_SESSION['role'] ?? '';
 
 // Delete a broadcast
-if (isset($_GET['delete_broadcast']) && $role === 'admin') {
+if (isset($_GET['delete_broadcast'])) {
     $id = $_GET['delete_broadcast'];
     $stmt = $pdo->prepare("DELETE FROM notifications WHERE id = ?");
     $stmt->execute([$id]);
@@ -67,9 +67,9 @@ $feedbacks = $pdo->query("
 ?>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@500&family=Righteous&family=Rajdhani:wght@600&family=Syncopate&display=swap" rel="stylesheet">
 
- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
 
 <?php include 'header.php'?>
@@ -130,11 +130,11 @@ $feedbacks = $pdo->query("
 
 <main class="main-content">
  <?php if ($role !== 'admin'): ?>
-  <div class="section">
-    <h2>📢 Broadcasts</h2>
-<?php if (empty($broadcasts)): ?>
+<div class="section">
+  <h2>📢 Broadcasts</h2>
+  <?php if (empty($broadcasts)): ?>
   <p class="text-muted fst-italic">No broadcast messages yet.</p>
-<?php else: ?>
+  <?php else: ?>
   <?php foreach ($broadcasts as $b): ?>
     <div class="message-box d-flex justify-content-between align-items-start">
       <div>
@@ -142,17 +142,14 @@ $feedbacks = $pdo->query("
         <div class="time"><?= htmlspecialchars($b['sent_at']) ?></div>
         <p><?= nl2br(htmlspecialchars($b['content'])) ?></p>
       </div>
-      <?php if ($role === 'admin'): ?>
         <a href="notification.php?delete_broadcast=<?= $b['id'] ?>" class="btn btn-sm btn-outline-danger ms-3" title="Delete">
-  <i class="bi bi-trash3-fill"></i>
-</a>
-
-      <?php endif; ?>
+        <i class="bi bi-trash3-fill"></i>
+      </a>
     </div>
   <?php endforeach; ?>
 <?php endif; ?>
 
-  </div>
+</div>
 <?php endif; ?>
 
 

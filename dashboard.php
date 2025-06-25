@@ -52,8 +52,8 @@ if ($role === 'admin') {
 <div class="container my-4">
   <div class="row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8 text-center">
-      <h2 class="fs-4 fs-md-3 fs-lg-2">እንኳን ወደ የቢሮ ሰነድ እና መልዕክት ሲስተም በደህና መጡ</h2>
-      <p class="text-muted fs-6 fs-md-5">በዚህ ሲስተም በቀላሉ ሰነዶችን ማስተላለፍ፣ መልዕክቶችን መላክ፣ እና ሥራዎችን ማከታተል ይችላሉ። ለማስተዳደር የጎን መነሻ ሜኑን ይጠቀሙ።</p>
+      <h2 class="fs-3 fs-md-3 fs-lg-2">እንኳን ወደ የቢሮ ሰነድ እና መልዕክት ሲስተም በደህና መጡ</h2>
+      <p class="text-muted fs-6 fs-md-5">በዚህ ሲስተም በቀላሉ ሰነዶችን ማስተላለፍ፣ መልዕክቶችን መላክ፣ እና ሥራዎችን መከታተል ይችላሉ።</p>
     </div>
   </div>
 </div>
