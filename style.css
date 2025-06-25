@@ -237,7 +237,7 @@ ul {
 }
 
 ul li::before {
-  content: '✅';
+  content: '=>';
   margin-right: 10px;
   color: var(--accent-color);
 }

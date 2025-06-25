@@ -10,6 +10,9 @@
 </head>
 
 <style>
+  html, body{
+    background-color: #e5e6e7;
+  }
   header{
     background-color: #87B0E8;
   }
@@ -51,7 +54,7 @@ form.card textarea {
 
 </style>
 
-<body class="bg-light">
+<body>
   <div class="d-flex flex-column min-vh-100">
 
 <!-- ✅ Header -->
@@ -75,43 +78,53 @@ form.card textarea {
     </header>
 
     <!-- ✅ Main Content -->
-    <section class="mb-5 py-5 hero-section text-dark" style="background-color: #87B0E8;">
+    <section class="mb-5 py-4 hero-section text-dark" style="background-color: #87B0E8;">
     <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-6 mb-3 mb-md-0">
+          <div class=" text-center mb-3 mb-md-0">
             <h1 class="fw-bold text-dark h1" style="font-size: 60px;">እንኳን ደኅና መጣችሁ!</h1>
             <p class="lead">በወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት የተሰራ ሲስተም ላይ ነን።</p>
           </div>
-          <div class="col-md-6 text-center">
-            <img src="tigist.jpg" alt="Hero Image" class="img-fluid rounded" style="max-height: 200px; object-fit: cover;">
-          </div>
+          <!-- <div class="col-md-6 text-center">
+            <img src="map.jpg" alt="Hero Image" class="img-fluid rounded" style="max-height: 200px; object-fit: cover;">
+          </div> -->
         </div>
       </div>
     </section>
     <main class="container py-5 flex-fill">
-      
+
+      <!-- Office Description Section -->
+    <section class="mb-5">
+      <div class="container">
+        <p class="lead text-justify">
+          አዲስ ከተማ ክፍለ ከተማ የወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት በአዲስ አበባ ክፍለ ከተማ ከሚገኙ 12 የወረዳ አስተዳደሮች ውስጥ አንዱ የወረዳ 4 አስተዳደር ሲሆን በዚህ ወረዳ ውስጥ 5 የተለያዩ ነባር ቀበሌዎች ማለትም 07/17፣ 07/26፣ 06/01፣ 06/08 እና 24/10 የተባሉ ነባር ቀበሌዎች ሲኖሩት በ9 ቀጠናዎች የተከፋፈለ ነው።
+        </p>
+      </div>
+    </section>
+
+    <!-- Office Roles & Functions Section -->
+    <section class="mb-5">
+      <div class="container">
+        <h2 class="mb-3  fw-bold">የጽ/ቤቱ ሁኔታ</h2>
+        <p class="mb-4">
+          ጽ/ቤታችን ማለትም የወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት የተለያዩ ተግባራት የሚያከናውን እና የተለያዩ አገልግሎቶችን የሚሰጥ ሲሆን እነዚህም በወረዳችን እርከን ደረጃ ዋና ዋና የሚባሉት የሚከተሉት ናቸው፡፡
+        </p>
+        <ul class="ps-4">
+          <li> የእድሳት ፈቅድ መስጠት (ለቤት እና ለአጥር)</li>
+          <li> 40% ማስፋፊያ መስጠት</li>
+          <li> የአጥር ግንባታ ፈቃድ መስጠት</li>
+          <li> የማፍረሻ ፈቃድ መስጠት</li>
+          <li> ጊዜያዊ ግንባታ ፈቃድ መስጠት</li>
+          <li> ለተፈቀዱ ፈቃዶች ክትትልና ቁጥጥር ማድረግ</li>
+          <li> ህገ ወጥ የውጭ ማስታወቂያ ላይ እርምጃ መውሰድ እና ህጋዊ እንድሆኑ ማድረግ</li>
+          <li> የግንባታ ተረፈ ምርት ማስነሳት እና የግንባታ ግብዓት ምርት በአግባቡ እንዲያስቀምጡ ማድረግ</li>
+          <li> ውብት በሚሰጥ መልኩ ቀለም ማስቀባት እና እስታንዳርዳይዜሽን መተግበር</li>
+          <li> ህግ ወጥ ግንባታ መከላከል ተግባራት ማከናወን</li>
+        </ul>
+      </div>
+    </section>
 
       <!-- Vision Section -->
-      <section class="mb-5">
-    አዲስ ከተማ ክፍለ ከተማ የወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት በአዲስ አበባ ክፍለ ከተማ ከሚገኙ 12 የወረዳ አስተዳደሮች ውስጥ አንዱ የወረዳ 4 አስተዳደር ሲሆን በዚህ ወረዳ ውስጥ 5 የተለያዩ ነባር ቀበሌዎች ማለትም 07/17፣ 07/26፣ 06/01፣ 06/08 እና 24/10 የተባሉ ነባር ቀበሌዎች ሲኖሩት በ9 ቀጠናዎች የተከፋፈለ ነው።
-      </section>
-      <section class="mb-5">
-        <h2 class="mb-3">የጽ/ቤቱ ሁኔታ</h2>
-      <p>ጽ/ቤታችን ማለትም የወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት የተለያዩ ተግባራት የሚያከናውን እና የተለያዩ አገልግሎቶችን የሚሰጥ ሲሆን እነዚህም በወረዳችን እርከን ደረጃ ዋና ዋና የሚባሉት የሚከተሉት ናቸው፡፡</p>
-    <ul>
-      <li>የእድሳት ፈቅድ መስጠት (ለቤት እና ለአጥር)</li>
-      <li>40% ማስፋፊያ መስጠት </li>
-      <li>የአጥር ግንባታ ፈቃድ መስጠት </li>
-      <li>የማፍረሻ ፈቃድ መስጠት</li>
-      <li>ጊዜያዊ ግንባታ ፈቃድ መስጠት</li>
-      <li>ለተፈቀዱ ፈቃዶች ክትትልና ቁጥጥር ማድረግ</li>
-      <li>ህገ ወጥ የውጭ ማስታወቂያ ላይ እርምጃ  መውሰድ እና ህጋዊ እንድሆኑ ማድረግ</li>  
-      <li>የግንባታ ተረፈ ምርት ማስነሳት እና የግንባታ ግብዓት ምርት በአግባቡ እንዲያስቀምጡ ማድረግ </li>
-      <li>ውብት በሚሰጥ መልኩ ቀለም ማስቀባት ተግባር ማከናወን (እስታንዳርዳይዜሽን የማስጠበቅ ስራ መስራት)</li>
-      <li>ህግ ወጥ ግንባታ መከላከል ተግባራት ማከናወን</li>
-    </ul>
-      </section>
-
       <section class="mb-5">
         <h2 class="mb-3">የተቋሙ ራእይ (Vision)</h2>
         <p class="lead">
@@ -203,7 +216,7 @@ form.card textarea {
           </div>
         </div>
       </div>
-    </section>
+      </section>
 
 
 
@@ -217,7 +230,7 @@ form.card textarea {
             <img src="wakweya.jpg" class="card-img-top" alt="Selam Tadesse" style="height: 220px; object-fit: cover;">
             <div class="card-body">
               <h5 class="card-title mb-1">ዋቅዋያ ጉዲሶ</h5>
-              <p class="text-muted small mb-0">ሃላፊ</p>
+              <p class="text-muted small mb-0">የአዲስ ከተማ ክ/ከ ወ04 ግ/ፍ/ቁ ጽ/ቤት ሃላፊ</p>
             </div>
           </div>
         </div>
@@ -320,7 +333,7 @@ form.card textarea {
 
     <footer class=" text-center py-4 mt-5">
       <div class="container">
-        <p class="mb-1">© 2025 የወረዳ 11 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት</p>
+        <p class="mb-1">© 2025 የወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት</p>
         <p class="mb-0">Designed & Developed by IT Team | <a href="mailto:info@wereda11.gov.et" class="text-white text-decoration-underline">info@wereda11.gov.et</a></p>
       </div>
     </footer>
