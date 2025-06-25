@@ -30,13 +30,6 @@ html, body {
   flex-direction: column;
 }
 
-footer{
-  left: 0;
-  bottom: 0;
-  width: 100vw; 
-  z-index: 999; 
-}
-
 /* SIDEBAR */
 .sidebar {
   position: fixed;
@@ -346,6 +339,7 @@ form input[type="submit"]:hover {
   left: 0;
   width: 100%;
   z-index: 9999;
+  position: fixed;
 }
 
 .footer a {
