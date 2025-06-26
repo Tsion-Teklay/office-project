@@ -3,7 +3,6 @@ $role = $_SESSION['user_role'] ?? '';
 ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 <div class="sidebar">
-  <h2><?php echo $role; ?> Panel</h2>
   <a href="dashboard.php"><i class="bi bi-speedometer2"></i> Dashboard</a>
   <a href="files.php"><i class="bi bi-folder-fill"></i> Files</a>
   <a href="history.php"><i class="bi bi-clock-history"></i> History</a>
