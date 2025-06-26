@@ -334,7 +334,11 @@ form.card textarea {
       <div class="container">
         <p class="mb-1">© 2025 የወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት</p>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <p class="mb-0">Designed & Developed by IT Team </p>
+=======
+        <p class="mb-0">Designed & Developed by IT Team</p>
+>>>>>>> Stashed changes
 =======
         <p class="mb-0">Designed & Developed by IT Team</p>
 >>>>>>> Stashed changes
