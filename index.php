@@ -54,12 +54,12 @@ form.card textarea {
 
 </style>
 
-<body>
-  <div class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
+  
 
 <!-- ✅ Header -->
     <header class=" shadow-sm sticky-top">
-      <div class="container-fluid py-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
+  <div class="container-fluid py-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
         <div class="d-flex align-items-center gap-3 mb-3 mb-md-0">
           <img src="logo.png" alt="Office Logo" style="height: 50px;">
           <h1 class="h5 text-center text-md-start mb-0">
@@ -91,6 +91,7 @@ form.card textarea {
         </div>
       </div>
     </section>
+
     <main class="container py-5 flex-fill">
 
       <!-- Office Description Section -->
@@ -147,7 +148,7 @@ form.card textarea {
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card text-center p-4 shadow-sm border-0 h-100 hover-shadow rounded-4">
             <div class="icon-wrapper mx-auto mb-3">
-              <i class="bi bi-eye fs-1 text-primary"></i>
+              <i class="bi bi-eye fs-1 text-danger"></i>
             </div>
             <h5>ግልፅነት</h5>
           </div>
@@ -156,7 +157,7 @@ form.card textarea {
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card text-center p-4 shadow-sm border-0 h-100 hover-shadow rounded-4">
             <div class="icon-wrapper mx-auto mb-3">
-              <i class="bi bi-shield-lock fs-1 text-success"></i>
+              <i class="bi bi-shield-lock fs-1 text-danger"></i>
             </div>
             <h5>ተጠያቂነት</h5>
           </div>
@@ -165,7 +166,7 @@ form.card textarea {
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card text-center p-4 shadow-sm border-0 h-100 hover-shadow rounded-4">
               <div class="icon-wrapper mx-auto mb-3">
-                <i class="bi bi-award fs-1 text-warning"></i>
+                <i class="bi bi-award fs-1 text-danger"></i>
               </div>
               <h5>የላቀ አገልግሎት መስጠት</h5>
             </div>
@@ -174,7 +175,7 @@ form.card textarea {
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card text-center p-4 shadow-sm border-0 h-100 hover-shadow rounded-4">
               <div class="icon-wrapper mx-auto mb-3">
-                <i class="bi bi-lightbulb fs-1 text-info"></i>
+                <i class="bi bi-lightbulb fs-1 text-danger"></i>
               </div>
               <h5>ለፈጠራ እና ለውጥ መነሳሳት</h5>
             </div>
@@ -192,7 +193,7 @@ form.card textarea {
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card text-center p-4 shadow-sm border-0 h-100 hover-shadow rounded-4">
               <div class="icon-wrapper mx-auto mb-3">
-                <i class="bi bi-briefcase fs-1 text-secondary"></i>
+                <i class="bi bi-briefcase fs-1 text-danger"></i>
               </div>
               <h5>ሙያዊ ክብር እና ስነምግባር</h5>
             </div>
@@ -201,7 +202,7 @@ form.card textarea {
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card text-center p-4 shadow-sm border-0 h-100 hover-shadow rounded-4">
               <div class="icon-wrapper mx-auto mb-3">
-                <i class="bi bi-briefcase fs-1 text-secondary"></i>
+                <i class="bi bi-person-standing fs-1 text-danger"></i>
               </div>
               <h5>ቅንነት</h5>
             </div>
@@ -210,15 +211,13 @@ form.card textarea {
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card text-center p-4 shadow-sm border-0 h-100 hover-shadow rounded-4">
             <div class="icon-wrapper mx-auto mb-3">
-              <i class="bi bi-people fs-1 text-primary"></i>
+              <i class="bi bi-people fs-1 text-danger"></i>
             </div>
             <h5>በቡድን የመስራት ባህል</h5>
           </div>
         </div>
       </div>
       </section>
-
-
 
       <!-- Team Section -->
     <section class="mb-5">
@@ -247,15 +246,45 @@ form.card textarea {
         <!-- Team Member -->
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card h-100 text-center shadow-sm border-0">
-            <img src="image.png" class="card-img-top" alt="Selam Tadesse" style="height: 220px; object-fit: cover;">
+            <img src="biruk.png" class="card-img-top" alt="Selam Tadesse" style="height: 220px; object-fit: cover;">
             <div class="card-body">
-              <h5 class="card-title mb-1">Selam Tadesse</h5>
-              <p class="text-muted small mb-0">Admin</p>
+              <h5 class="card-title mb-1">ብሩክ አለሙ</h5>
+              <p class="text-muted small mb-0">አርክቴክቸራል ዲ/ም/ ፍቃድ ሰራተኛ</p>
             </div>
           </div>
         </div>
         <!-- Team Member -->
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 text-center shadow-sm border-0">
+            <img src="kidist.png" class="card-img-top" alt="Selam Tadesse" style="height: 220px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">ቅድስት ተፈሪ</h5>
+              <p class="text-muted small mb-0">የግንባታ ፍቃድ አሰጣጥ ባለሙያ</p>
+            </div>
+          </div>
+        </div>
+        <!-- Team Member -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 text-center shadow-sm border-0">
+            <img src="demeshi.png" class="card-img-top" alt="Selam Tadesse" style="height: 220px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">ደመሺ ዋቅጅራ</h5>
+              <p class="text-muted small mb-0">የጽህፈት እና ቢሮ አስተዳደር ባለሙያ</p>
+            </div>
+          </div>
+        </div>
+        <!-- Team Member -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 text-center shadow-sm border-0">
+            <img src="tamrat.png" class="card-img-top" alt="Selam Tadesse" style="height: 220px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title mb-1">ታምራት ተክላይ</h5>
+              <p class="text-muted small mb-0">የግንባታ ክትትል እና ቁጥጥር ባለሙያ</p>
+            </div>
+          </div>
+        </div>
+        <!-- Team Member -->
+        <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card h-100 text-center shadow-sm border-0">
             <img src="image.png" class="card-img-top" alt="Selam Tadesse" style="height: 220px; object-fit: cover;">
             <div class="card-body">
@@ -263,37 +292,7 @@ form.card textarea {
               <p class="text-muted small mb-0">Admin</p>
             </div>
           </div>
-        </div>
-        <!-- Team Member -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card h-100 text-center shadow-sm border-0">
-            <img src="image.png" class="card-img-top" alt="Selam Tadesse" style="height: 220px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title mb-1">Selam Tadesse</h5>
-              <p class="text-muted small mb-0">Admin</p>
-            </div>
-          </div>
-        </div>
-        <!-- Team Member -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card h-100 text-center shadow-sm border-0">
-            <img src="image.png" class="card-img-top" alt="Selam Tadesse" style="height: 220px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title mb-1">Selam Tadesse</h5>
-              <p class="text-muted small mb-0">Admin</p>
-            </div>
-          </div>
-        </div>
-        <!-- Team Member -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card h-100 text-center shadow-sm border-0">
-            <img src="image.png" class="card-img-top" alt="Selam Tadesse" style="height: 220px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title mb-1">Selam Tadesse</h5>
-              <p class="text-muted small mb-0">Admin</p>
-            </div>
-          </div>
-        </div>
+        </div> -->
 
       </div>
     </section>
@@ -302,16 +301,16 @@ form.card textarea {
 
       <!-- Feedback Form -->
       <section class="mb-5">
-      <h2 class="mb-4 ">Feedback / Message to Admin</h2>
+      <h2 class="mb-4 ">ስለ አገልግሎታችን አስተያየት ካሎት</h2>
       <div class="d-flex justify-content-center">
         <form action="submit_feedback.php" method="POST" class="card p-4 shadow border-0 w-100" style="max-width: 800px;">
           <div class="mb-3">
-            <label for="client_name" class="form-label fw-semibold">Your Name</label>
+            <label for="client_name" class="form-label fw-semibold">ሙሉ ስም</label>
             <input type="text" name="client_name" id="client_name" class="form-control" placeholder="Enter your name" required>
           </div>
 
           <div class="mb-3">
-            <label for="message" class="form-label fw-semibold">Your Feedback or Message</label>
+            <label for="message" class="form-label fw-semibold">አስተያየት</label>
             <textarea name="message" id="message" class="form-control" rows="5" placeholder="Write your message here..." required></textarea>
           </div>
 
@@ -334,11 +333,15 @@ form.card textarea {
     <footer class=" text-center py-4 mt-5">
       <div class="container">
         <p class="mb-1">© 2025 የወረዳ 4 ግንባታ ፈቃድና ቁጥጥር ጽ/ቤት</p>
+<<<<<<< Updated upstream
         <p class="mb-0">Designed & Developed by IT Team </p>
+=======
+        <p class="mb-0">Designed & Developed by IT Team</p>
+>>>>>>> Stashed changes
       </div>
     </footer>
 
-</div>
+
 
 </body>
 
