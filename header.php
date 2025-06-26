@@ -49,7 +49,7 @@ $role = $_SESSION['role'] ?? '';
   <div class="container-fluid py-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
     <div class="d-flex align-items-center gap-3 mb-3 mb-md-0">
       <!-- Menu button for small screens -->
-      <button id="menuToggle" class="btn btn-outline-dark d-md-none me-2" onclick="toggleSidebar()">
+      <button id="menuToggle" class="btn btn-outline-dark me-2" onclick="toggleSidebar()">
         <i class="bi bi-list"></i>
       </button>
       <img src="logo.png" alt="Office Logo" style="height: 50px;">

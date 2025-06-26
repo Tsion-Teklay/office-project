@@ -181,7 +181,7 @@ html, body {
   margin-top: 5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1068px) {
   .summary-card {
     width: 100%;
     height: auto;
@@ -346,7 +346,7 @@ form input[type="submit"] {
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 1068px) {
   .sidebar {
     width: 100%;
     height: 100vh;
@@ -390,3 +390,9 @@ form input[type="submit"] {
     width: 100vw;
   }
 }
+
+@media (min-width: 1068px) {
+      #menuToggle {
+        display: none !important;
+      }
+    }
